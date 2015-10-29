@@ -12,6 +12,7 @@ public class BackgroundController : MonoBehaviour {
 
     void Awake()
     {
+        //フィルターのキャッシュを作成
         filter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
     }
     // Use this for initialization

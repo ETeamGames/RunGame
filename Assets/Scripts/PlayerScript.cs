@@ -3,7 +3,13 @@ using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
 
-    public float power = 0;
+    [Header("プロパティ名にカーソルを合わせると、説明が表示されます")]
+    [Tooltip("物体を飛ばす力")]
+    public float power;
+
+    [Header("ここより下はデバッグ用の表示です")]
+    [Header("変更を加えないでください")]
+    [Tooltip("飛ばす物体のリスト")]
     public dynamicObjectScript[] objects = new dynamicObjectScript[3];
 
     //攻撃可能物体を座標に飛ばす

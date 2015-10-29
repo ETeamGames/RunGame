@@ -759,6 +759,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 403345989}
+  - 114: {fileID: 403345990}
   m_Layer: 0
   m_Name: Gage
   m_TagString: Untagged
@@ -780,6 +781,24 @@ Transform:
   - {fileID: 2032031093}
   m_Father: {fileID: 0}
   m_RootOrder: 7
+--- !u!114 &403345990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 403345988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 176433696d62258458d4ad9431e608e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blueGage: {fileID: 2032031091}
+  redGage: {fileID: 1655160574}
+  attenuation: .5
+  increment: .800000012
+  touchDown: 0
+  touchable: {fileID: 0}
+  gageScale: {x: 0, y: 0}
 --- !u!1001 &484487412
 Prefab:
   m_ObjectHideFlags: 0
@@ -1446,6 +1465,29 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 115266, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
   m_PrefabInternal: {fileID: 1622668141}
+--- !u!114 &839789903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 839789902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dad437672bd7a484e8b98859fee81304, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sightScale: {x: .100000001, y: .100000001}
+  sightDelTime: 1
+  touchDown: 0
+  sightFlag: 0
+  alphaAttenuation: 0
+  cam: {fileID: 1014041775}
+  sightPos: {x: 0, y: 0, z: 0}
+  col: {r: 0, g: 0, b: 0, a: 0}
+  initCol: {r: 0, g: 0, b: 0, a: 0}
+  initRot: {x: 0, y: 0, z: 0, w: 0}
+  initScale: {x: 0, y: 0, z: 0}
+  gameManager: {fileID: 0}
 --- !u!4 &839900561 stripped
 Transform:
   m_PrefabParentObject: {fileID: 418714, guid: e348b517624c8de45ad7f3916a57208f, type: 2}
@@ -1841,14 +1883,6 @@ MonoBehaviour:
   cam: {fileID: 1014041775}
   slowSpeed: .200000003
   normalSpeed: 0
-  blueGage: {fileID: 0}
-  redGage: {fileID: 0}
-  attenuation: .300000012
-  increment: 1
-  eim: {fileID: 839789902}
-  eimScale: {x: .100000001, y: .100000001}
-  eimDelTime: 1
-  alphaAttenuation: 0
   touchDown: 0
   touchable: 1
 --- !u!4 &1031045001
@@ -2749,7 +2783,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 115266, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
       propertyPath: m_Name
-      value: eim
+      value: Sight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
