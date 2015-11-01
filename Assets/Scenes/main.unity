@@ -1476,8 +1476,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad437672bd7a484e8b98859fee81304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sightScale: {x: .100000001, y: .100000001}
+  sightScale: {x: .100000001, y: .100000001, z: 0}
+  sightScaleInit: {x: 20, y: 20, z: 0}
+  scaleTime: 1
   sightDelTime: 1
+  rotateSpeed: 30
   touchDown: 0
   sightFlag: 0
   alphaAttenuation: 0
@@ -1487,6 +1490,8 @@ MonoBehaviour:
   initCol: {r: 0, g: 0, b: 0, a: 0}
   initRot: {x: 0, y: 0, z: 0, w: 0}
   initScale: {x: 0, y: 0, z: 0}
+  deltaScale: {x: 0, y: 0, z: 0}
+  scaleTimeBuffer: 0
   gameManager: {fileID: 0}
 --- !u!4 &839900561 stripped
 Transform:
@@ -2148,7 +2153,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 482886, guid: b61190ac94f00ae428129ff778ea9151, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 182386, guid: b61190ac94f00ae428129ff778ea9151, type: 2}
       propertyPath: m_Name
@@ -2190,6 +2195,15 @@ Prefab:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9529040, guid: b61190ac94f00ae428129ff778ea9151, type: 2}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 40d6db726cf034e4bbf42602f3f3b5c3, type: 2}
+    - target: {fileID: 21230548, guid: b61190ac94f00ae428129ff778ea9151, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 02710eaada8365b4395637d5a372ba35,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b61190ac94f00ae428129ff778ea9151, type: 2}
   m_IsPrefabParent: 0
@@ -2785,6 +2799,19 @@ Prefab:
       propertyPath: m_Name
       value: Sight
       objectReference: {fileID: 0}
+    - target: {fileID: 21203050, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d31502139132a64cb561c2340f3382b,
+        type: 3}
+    - target: {fileID: 115266, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 21203050, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 37d3014ab602c7240ba5a11be7eee599, type: 2}
   m_IsPrefabParent: 0
@@ -2918,7 +2945,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: c918b405a7606f84d8b12dfcb898888a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0e91c7e754e44f54a9d2a23aea56c881, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &1664367743
 Prefab:
@@ -3441,7 +3468,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 21300000, guid: 02fa367c21ae2d446b37bf0932f15682, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 034a4bea3d94a5347b4ea8f86b64bce4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &2032031093
 Transform:
