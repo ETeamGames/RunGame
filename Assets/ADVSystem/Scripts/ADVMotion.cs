@@ -73,18 +73,18 @@ public class ADVMotion{
 
         if (direct == DIRECT.RIGHT)
         {
-            Debug.Log("ADVMotion : direct.right");
+            //Debug.Log("ADVMotion : direct.right");
             g.GetComponent<Image>().sprite = chara.right[(int)emo];
             g.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
         }
         else if (direct == DIRECT.CENTER)
         {
-            Debug.Log("ADVMotion : direct.center");
+            //Debug.Log("ADVMotion : direct.center");
             g.GetComponent<Image>().sprite = chara.center[(int)emo];
         }
         else
         {
-            Debug.Log("ADVMotion : direct.left");
+            //Debug.Log("ADVMotion : direct.left");
             g.GetComponent<Image>().sprite = chara.right[(int)emo];
             g.GetComponent<RectTransform>().localScale = new Vector3(-1, 1, 1);
         }

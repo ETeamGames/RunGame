@@ -1478,7 +1478,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sightScale: {x: .100000001, y: .100000001, z: 0}
   sightScaleInit: {x: 20, y: 20, z: 0}
-  scaleTime: 1
+  scaleTime: .300000012
   sightDelTime: 1
   rotateSpeed: 30
   touchDown: 0

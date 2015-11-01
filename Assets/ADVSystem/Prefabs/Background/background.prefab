@@ -30,7 +30,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 2100000, guid: 68a808b1cfcf8aa4586b4ef50e9a13ac, type: 2}
-  m_Color: {r: 0, g: 1, b: .409000009, a: 1}
+  m_Color: {r: .00616255542, g: .00621551275, b: .00357612455, a: .00621551275}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pivot: {x: .5, y: .5}
   velocity: {x: 0, y: 0}
-  scale: {x: 5, y: 5, z: 0}
+  scale: {x: 0, y: 0, z: 0}
   angle: 0
 --- !u!222 &22267772
 CanvasRenderer:
@@ -96,11 +96,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: scale.x
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: scale.y
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: scale.z
@@ -126,6 +126,10 @@ Prefab:
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 2100000, guid: 68a808b1cfcf8aa4586b4ef50e9a13ac, type: 2}
+    - target: {fileID: 0}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 103724}

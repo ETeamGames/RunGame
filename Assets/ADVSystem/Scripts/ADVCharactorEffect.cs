@@ -29,14 +29,14 @@ public class ADVCharactorEffect : MonoBehaviour {
             GetComponent<Image>().color.a
             );
         diffColor = (col - endColor) / effectTime;
-        Debug.Log("ADVCharactorEffect : DiffColor :" + diffColor);
+        //Debug.Log("ADVCharactorEffect : DiffColor :" + diffColor);
     }
 	
 	// Update is called once per frame
 	void Update () {
 	    if((startFlag==TIMMING.START || startFlag == TIMMING.END) && timeBuffer < effectTime)
         {
-            Debug.Log("ADVCharactorEffect : Update timeBuffer : "+timeBuffer);
+            //Debug.Log("ADVCharactorEffect : Update timeBuffer : "+timeBuffer);
             color.r = diffColor.x * Time.deltaTime;
             color.g = diffColor.y * Time.deltaTime;
             color.b = diffColor.z * Time.deltaTime;

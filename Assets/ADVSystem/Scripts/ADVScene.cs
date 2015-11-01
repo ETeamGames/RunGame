@@ -4,6 +4,13 @@ using System.Collections.Generic;
 
 [System.Serializable]
 public class ADVScene : MonoBehaviour{
+    public enum EFFECTFLAG
+    {
+        START,
+        END,
+        NON,
+    }
+
     public bool textAnim = true;
     public int textIndex = 1;
     public float timeBuffer = 0;
@@ -17,7 +24,11 @@ public class ADVScene : MonoBehaviour{
     public int index;
     public List<ADVElement> texts;
 
+    [SerializeField]
+    private ADVBackground[] backgrounds;
+    private EFFECTFLAG effectFlag;
     private ADVManager advManager;
+    private bool effectAllFlag;
 
     public void init()
     {
@@ -27,6 +38,19 @@ public class ADVScene : MonoBehaviour{
         textIndex = 1;
         textAnim = false;
         drawText(true);
+
+        //エフェクト初期化
+        for(int n = 0; n < backgrounds.Length; n++)
+        {
+            backgrounds[n].End.init(backgrounds[n].background);
+            backgrounds[n].Start.init(backgrounds[n].background);
+            for (int m = 0; m < backgrounds[n].normal.Length; m++)
+            {
+                backgrounds[n].normal[m].init(backgrounds[n].Start.effectColor);
+            }
+        }
+        effectAllFlag = false;
+        effectFlag = EFFECTFLAG.START;
     }
 
     void Awake()
@@ -36,10 +60,52 @@ public class ADVScene : MonoBehaviour{
         texts[index].start(canvas, charaImagePosY);
     }
 
+    void Start()
+    {
+        effectFlag = EFFECTFLAG.START;
+        if (textAnim)
+        {
+            init();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (effectFlag == EFFECTFLAG.START)
+        {
+            foreach(ADVBackground g in backgrounds) {
+                effectAllFlag = g.Start.proc(Time.deltaTime,g.background);
+            }
+            if (effectAllFlag)
+            {
+                effectFlag = EFFECTFLAG.NON;
+                effectAllFlag = false;
+            }
+        }
+        else if(effectFlag == EFFECTFLAG.NON)
+        {
+            foreach (ADVBackground g in backgrounds)
+            {
+                foreach (ADVEffect e in g.normal)
+                {
+                    e.proc(Time.deltaTime, g.background,g.background);
+                }
+            }
+        }
+        else if(effectFlag == EFFECTFLAG.END)
+        {
+            foreach (ADVBackground g in backgrounds)
+            {
+                effectAllFlag = g.End.proc(Time.deltaTime, g.background,g.background);
+            }
+            if (effectAllFlag)
+            {
+                advManager.nextScene();
+            }
+        }
+
+        if (Input.GetMouseButtonDown(0) && effectFlag != EFFECTFLAG.END)
         {
             Debug.Log("タッチ<scaneManager>");
             if (textAnim)
@@ -58,7 +124,9 @@ public class ADVScene : MonoBehaviour{
                 }
                 else
                 {
-                    advManager.nextScene();
+                    texts[index-1].end();
+                    effectFlag = EFFECTFLAG.END;
+                    //advManager.nextScene();
                 }
             }
         }
@@ -76,7 +144,7 @@ public class ADVScene : MonoBehaviour{
         {
             if (textIndex > texts[index].text.Length)
             {
-                Debug.Log("クイック");
+                //Debug.Log("クイック");
                 text.text = texts[index].text;
                 textAnim = false;
                 textIndex = 0;
@@ -85,7 +153,7 @@ public class ADVScene : MonoBehaviour{
             {
                 if (timeBuffer > (1f / textDrawSpeed))
                 {
-                    Debug.Log("アニメーション");
+                    //Debug.Log("アニメーション");
                     text.text = texts[index].text.Substring(0, textIndex);
                     textIndex++;
                     timeBuffer = 0;
