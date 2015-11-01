@@ -4,15 +4,21 @@ using System.Collections;
 public class GameManager : MonoBehaviour {
 
     public PlayerScript playerScript;
+    public Animator playerAnimator;
     public Camera cam;
     public float slowSpeed = 1.0f;
     public float normalSpeed = 0;
 
+    public bool touchDown = false;
+    public bool touchable = true;
+    ColorFilter colorFilter;
+
     void Awake()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
-        //cam = GameObject.Find("MainCamera").GetComponent<Camera>();
+        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         normalSpeed = Time.timeScale;
+        colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
     }
 
 	// Use this for initialization
@@ -27,16 +33,24 @@ public class GameManager : MonoBehaviour {
         {
             playerScript.attack(Input.touches[0].position);
         }
-        else if (Input.GetMouseButtonDown(0))
+        else if (Input.GetMouseButtonDown(0) && touchable)
         {
+            touchDown = true;
             Time.timeScale = slowSpeed;
+            colorFilter.filter = true;
+            playerAnimator.SetBool("jump", true);
         }
         //デバッグ用（マウスイベント）
-        else if (Input.GetMouseButtonUp(0))
+        else if (Input.GetMouseButtonUp(0) || !touchable)
         {    
             Debug.Log(cam.ScreenToWorldPoint(Input.mousePosition));
             Time.timeScale = normalSpeed;
-            playerScript.attack(cam.ScreenToWorldPoint(Input.mousePosition));
+            if (touchable)
+                playerScript.attack(cam.ScreenToWorldPoint(Input.mousePosition));
+
+            touchDown = false;
+            colorFilter.filter = false;
+            playerAnimator.SetBool("jump", false);
         }
     }
 }
