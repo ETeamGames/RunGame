@@ -14,6 +14,7 @@ public class outOfFieldScript : MonoBehaviour {
 	}
     void OnTriggerExit2D(Collider2D col)
     {
+        //触れた物体を消去
         Debug.Log("<OutOfField:OnTriggerExit2D>" + col.gameObject.name);
         Destroy(col.gameObject);
     }
