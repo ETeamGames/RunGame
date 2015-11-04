@@ -5,16 +5,25 @@ public class SightScript : MonoBehaviour {
     /****************パブリック変数***************/
     [Header("プロパティ名にカーソルを置くと説明が表示されます")]
         [Tooltip("照準画像の大きさ")]
-    public Vector2 sightScale;
+    public Vector3 sightScale = Vector3.one;
+
+    [Tooltip("画像初期の大きさ")]
+    public Vector3 sightScaleInit = Vector3.one;
+
+    [Tooltip("縮小の時間")]
+    public float scaleTime;
 
         [Tooltip("指を離した後、消滅するまでの時間(秒)")]
     public float sightDelTime;
+
+        [Tooltip("回転速度　度/秒")]
+    public float rotateSpeed;
 
     /****************プライベート変数*************/
     [Space(10)]
     [Header("ここより下のプロパティはデバッグ用です。変更しないでください")]
         [SerializeField,Tooltip("画面がタッチされたかtrue or false")]
-    private bool touchDown = false;
+    private bool touchDown;
 
         [SerializeField, Tooltip("タッチしている間、照準をタッチ位置に移動させるためのフラグ")]
     private bool sightFlag;
@@ -40,12 +49,20 @@ public class SightScript : MonoBehaviour {
         [SerializeField, Tooltip("初期サイズ")]
     private Vector3 initScale;
 
-        [SerializeField,Tooltip("ゲームマネージャ")]
+    [SerializeField, Tooltip("差分スケール")]
+    private Vector3 deltaScale;
+
+    [SerializeField, Tooltip("差分スケール")]
+    private float scaleTimeBuffer;
+
+    [SerializeField,Tooltip("ゲームマネージャ")]
     private GameManager gameManager;
 
     void Awake()
     {
-        transform.localScale = sightScale;
+        deltaScale = sightScaleInit - sightScale;
+        deltaScale = deltaScale / scaleTime;
+        transform.localScale = sightScaleInit;
         initCol = GetComponent<SpriteRenderer>().color;
         alphaAttenuation = initCol.a / sightDelTime;
         initRot = transform.rotation;
@@ -62,7 +79,7 @@ public class SightScript : MonoBehaviour {
         //デバッグ用（マウスイベント）
         if (Input.GetMouseButtonDown(0))
         {
-            testTime = 0;
+            scaleTimeBuffer = 0;
 
             transform.rotation = initRot;
             touchDown = true;
@@ -90,7 +107,7 @@ public class SightScript : MonoBehaviour {
 
                 //テスト　回転を加え絵的にかっこよく
                 scaling();
-                transform.Rotate(0, 0, Time.deltaTime * 100, Space.Self);
+                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
             }
             else
             {
@@ -107,21 +124,28 @@ public class SightScript : MonoBehaviour {
                 sightPos.z = 0;
                 transform.position = sightPos;
                 //テスト　回転を加え絵的にかっこよく
-                transform.Rotate(0, 0, Time.deltaTime * 100, Space.Self);
+                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
             }
         }
     }
 
     void scaling()
     {
-        if ((testTime += Time.deltaTime) < (1 * gameManager.slowSpeed))
+        if (scaleTimeBuffer < scaleTime)
         {
-            transform.localScale = new Vector3(sightScale.x + (10 - (10 / 1 * (testTime / gameManager.slowSpeed))), sightScale.y + (10 - (10 / 1 * (testTime / gameManager.slowSpeed))), 0);
+            transform.localScale = sightScaleInit - deltaScale*scaleTimeBuffer;
+            scaleTimeBuffer += (Time.deltaTime/gameManager.slowSpeed);
         }
         else
         {
             transform.localScale = sightScale;
+            //scaleTimeBuffer = 0;
         }
     }
-    float testTime;
+
+    //inspector
+    private void OnValidate()
+    {
+        scaleTime = Mathf.Clamp(scaleTime,0.00000001f,float.MaxValue);
+    }
 }

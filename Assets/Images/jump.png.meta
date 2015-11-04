@@ -1,18 +1,18 @@
 fileFormatVersion: 2
-guid: 436299d5ff02bed40a56a633a8c6c378
-timeCreated: 1446109270
+guid: 3dcef0d541ca489438559e60e65d7b0a
+timeCreated: 1446227861
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_0"
-    21300002: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_1"
-    21300004: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_2"
-    21300006: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_3"
-    21300008: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_4"
-    21300010: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_5"
-    21300012: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_6"
-    21300014: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_7"
-    21300016: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_8"
+    21300000: jump_0
+    21300002: jump_1
+    21300004: jump_2
+    21300006: jump_3
+    21300008: jump_4
+    21300010: jump_5
+    21300012: jump_6
+    21300014: jump_7
+    21300016: jump_8
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -59,7 +59,7 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_0"
+    - name: jump_0
       rect:
         serializedVersion: 2
         x: 0
@@ -69,7 +69,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_1"
+    - name: jump_1
       rect:
         serializedVersion: 2
         x: 70
@@ -79,7 +79,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_2"
+    - name: jump_2
       rect:
         serializedVersion: 2
         x: 140
@@ -89,7 +89,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_3"
+    - name: jump_3
       rect:
         serializedVersion: 2
         x: 210
@@ -99,7 +99,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_4"
+    - name: jump_4
       rect:
         serializedVersion: 2
         x: 280
@@ -109,7 +109,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_5"
+    - name: jump_5
       rect:
         serializedVersion: 2
         x: 350
@@ -119,7 +119,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_6"
+    - name: jump_6
       rect:
         serializedVersion: 2
         x: 420
@@ -129,7 +129,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_7"
+    - name: jump_7
       rect:
         serializedVersion: 2
         x: 490
@@ -139,7 +139,7 @@ TextureImporter:
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: "\u30E6\u30CB\u30C6\u30A3\u3061\u3083\u3093_\u30B8\u30E3\u30F3\u30D7_8"
+    - name: jump_8
       rect:
         serializedVersion: 2
         x: 560

@@ -24,7 +24,14 @@ public class ColorFilter : MonoBehaviour {
         {
             foreach(SpriteRenderer s in sprite)
             {
-                s.color = filterColor;
+                if (s == null || s.color == null || filterColor == null)
+                {
+
+                }
+                else
+                {
+                    s.color = filterColor;
+                }
             }
             one = true;
         }
@@ -32,7 +39,10 @@ public class ColorFilter : MonoBehaviour {
         {
             foreach (SpriteRenderer s in sprite)
             {
-                s.color = Color.white;
+                if (s != null && s.color != null)
+                {
+                    s.color = Color.white;
+                }
             }
             one = false;
         }
