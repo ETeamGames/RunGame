@@ -88,11 +88,11 @@ public class ADVEffect{
             //色
             if (countH != 0)
             {
-                if (h > 1f)
+                if (h >= 1f)
                 {
                     if (countH != 1 || countH < 0)
                     {
-                        h = 0f;
+                        h = 0;
                     }
                     if (countH > 0)
                     {
@@ -102,6 +102,7 @@ public class ADVEffect{
                 else
                 {
                     h += deltaColorH * deltaTime;
+                    h = Mathf.Clamp(h, 0, 1f);
                 }
             }
             if (countS != 0)
@@ -110,7 +111,7 @@ public class ADVEffect{
                 {
                     if (countS != 1 || countS < 0)
                     {
-                        s = 0f;
+                        s = 0;
                     }
                     if (countS > 0)
                     {
@@ -120,6 +121,7 @@ public class ADVEffect{
                 else
                 {
                     s += deltaColorS * deltaTime;
+                    s = Mathf.Clamp(s, 0, 1f);
                 }
             }
             if (countV != 0)
@@ -128,7 +130,7 @@ public class ADVEffect{
                 {
                     if (countV != 1 || countV < 0)
                     {
-                        v = 0f;
+                        v = 0;
                     }
                     if (countV > 0)
                     {
@@ -138,6 +140,7 @@ public class ADVEffect{
                 else
                 {
                     v += deltaColorV * deltaTime;
+                    v = Mathf.Clamp(v, 0, 1f);
                 }
             }
             target.GetComponent<Image>().color = UnityEditor.EditorGUIUtility.HSVToRGB(h,s,v);
