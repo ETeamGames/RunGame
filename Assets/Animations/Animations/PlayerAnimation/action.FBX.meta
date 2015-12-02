@@ -1,0 +1,257 @@
+fileFormatVersion: 2
+guid: e9266cc53283b294d81473ffeb04179a
+timeCreated: 1447243880
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: body
+    100004: down body
+    100006: Head
+    100008: lefr leg
+    100010: left 3
+    100012: left arm
+    100014: left hood back
+    100016: left hood front
+    100018: left leg1
+    100020: left leg2
+    100022: left1
+    100024: left2
+    100026: metal hand
+    100028: right arm
+    100030: right hood back2
+    100032: right hood front1
+    100034: right hood front2
+    100036: right leg
+    100038: right leg1
+    100040: right leg2
+    100042: right1
+    100044: right2
+    100046: right3
+    100048: upper body
+    100050: weist
+    400000: //RootNode
+    400002: body
+    400004: down body
+    400006: Head
+    400008: lefr leg
+    400010: left 3
+    400012: left arm
+    400014: left hood back
+    400016: left hood front
+    400018: left leg1
+    400020: left leg2
+    400022: left1
+    400024: left2
+    400026: metal hand
+    400028: right arm
+    400030: right hood back2
+    400032: right hood front1
+    400034: right hood front2
+    400036: right leg
+    400038: right leg1
+    400040: right leg2
+    400042: right1
+    400044: right2
+    400046: right3
+    400048: upper body
+    400050: weist
+    2300000: body
+    2300002: Head
+    2300004: left 3
+    2300006: left hood back
+    2300008: left hood front
+    2300010: left leg1
+    2300012: left leg2
+    2300014: left1
+    2300016: left2
+    2300018: right hood back2
+    2300020: right hood front1
+    2300022: right hood front2
+    2300024: right leg1
+    2300026: right leg2
+    2300028: right1
+    2300030: right2
+    2300032: right3
+    2300034: weist
+    3300000: body
+    3300002: Head
+    3300004: left 3
+    3300006: left hood back
+    3300008: left hood front
+    3300010: left leg1
+    3300012: left leg2
+    3300014: left1
+    3300016: left2
+    3300018: right hood back2
+    3300020: right hood front1
+    3300022: right hood front2
+    3300024: right leg1
+    3300026: right leg2
+    3300028: right1
+    3300030: right2
+    3300032: right3
+    3300034: weist
+    4300000: Head
+    4300002: left hood back
+    4300004: right hood back2
+    4300006: right hood front2
+    4300008: right1
+    4300010: right2
+    4300012: right3
+    4300014: left1
+    4300016: left2
+    4300018: left 3
+    4300020: body
+    4300022: left hood front
+    4300024: right hood front1
+    4300026: weist
+    4300028: right leg1
+    4300030: right leg2
+    4300032: left leg1
+    4300034: left leg2
+    7400000: Take 001
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 0
+      lastFrame: 40
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: down body
+        weight: 1
+      - path: down body/lefr leg
+        weight: 1
+      - path: down body/lefr leg/left leg1
+        weight: 1
+      - path: down body/lefr leg/left leg1/left leg2
+        weight: 1
+      - path: down body/right leg
+        weight: 1
+      - path: down body/right leg/right leg1
+        weight: 1
+      - path: down body/right leg/right leg1/right leg2
+        weight: 1
+      - path: down body/weist
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: left hood back
+        weight: 1
+      - path: right hood back2
+        weight: 1
+      - path: right hood front2
+        weight: 1
+      - path: upper body
+        weight: 1
+      - path: upper body/body
+        weight: 1
+      - path: upper body/left arm
+        weight: 1
+      - path: upper body/left arm/left1
+        weight: 1
+      - path: upper body/left arm/left1/left2
+        weight: 1
+      - path: upper body/left arm/left1/left2/left 3
+        weight: 1
+      - path: upper body/left hood front
+        weight: 1
+      - path: upper body/right arm
+        weight: 1
+      - path: upper body/right arm/right1
+        weight: 1
+      - path: upper body/right arm/right1/right2
+        weight: 1
+      - path: upper body/right arm/right1/right2/metal hand
+        weight: 1
+      - path: upper body/right arm/right1/right2/metal hand/right3
+        weight: 1
+      - path: upper body/right hood front1
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
