@@ -2,14 +2,20 @@
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
+    public enum CONTROL
+    {
+        NON,
+        GAME,
+        GUI
+    }
 
+    public static CONTROL state = CONTROL.GAME;
     public static PlayerScript playerScript;
     public static bool gameover = false;
     public Animator playerAnimator;
     public Camera cam;
-    public float slowSpeed = 1.0f;
-    public float normalSpeed = 0;
-
+    public static float slowSpeed = 1.0f;
+    public static float normalSpeed = 0;
     public bool touchDown = false;
     public static bool touchable = true;
     ColorFilter colorFilter;
@@ -24,7 +30,7 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+        state = CONTROL.GAME;
 	}
 	
 	// Update is called once per frame

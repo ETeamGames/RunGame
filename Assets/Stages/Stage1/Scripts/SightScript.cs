@@ -55,8 +55,8 @@ public class SightScript : MonoBehaviour {
     [SerializeField, Tooltip("差分スケール")]
     private float scaleTimeBuffer;
 
-    [SerializeField,Tooltip("ゲームマネージャ")]
-    private GameManager gameManager;
+    [SerializeField, Tooltip("ゲージスクリプト")]
+    private GageScript gageScript;
 
     void Awake()
     {
@@ -66,7 +66,6 @@ public class SightScript : MonoBehaviour {
         initCol = GetComponent<SpriteRenderer>().color;
         alphaAttenuation = initCol.a / sightDelTime;
         initRot = transform.rotation;
-        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Use this for initialization
@@ -77,7 +76,7 @@ public class SightScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //デバッグ用（マウスイベント）
-        if (Input.GetMouseButtonDown(0))
+        if (InputScript.isInputDown() && )
         {
             scaleTimeBuffer = 0;
 
@@ -89,7 +88,7 @@ public class SightScript : MonoBehaviour {
                 sightFlag = false;
 
         }
-        else if (Input.GetMouseButtonUp(0) || !GameManager.touchable)
+        else if (InputScript.isInputUp() && GameManager.state == GameManager.CONTROL.GAME || gageScript.empty)
         {
             touchDown = false;
             sightFlag = true;
@@ -132,7 +131,7 @@ public class SightScript : MonoBehaviour {
         if (scaleTimeBuffer < scaleTime)
         {
             transform.localScale = sightScaleInit - deltaScale*scaleTimeBuffer;
-            scaleTimeBuffer += (Time.deltaTime/gameManager.slowSpeed);
+            scaleTimeBuffer += (Time.deltaTime/GameManager.slowSpeed);
         }
         else
         {
