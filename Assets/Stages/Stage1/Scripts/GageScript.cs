@@ -12,69 +12,54 @@ public class GageScript : MonoBehaviour {
     [Tooltip("回復量/秒")]
     public float increment;
 
-    public GameManager touchable;
-
-    [Header("ここより下はデバッグ用のプロパティです")]
-    [Header("変更しないでください")]
-    [SerializeField,Tooltip("タッチされたか")]
-    private bool touchDown = false;
-    [SerializeField, Tooltip("青ゲージ用縮尺")]
+    public int mode
+    {
+        get; set;
+    } //1 = 回復, -1 = 減少 ,0 = 停止
+    public bool empty
+    {
+        get; set;
+    }//ゲージ全消費時on
     private Vector2 gageScale = new Vector2();
 
-    void Awake()
-    {
-        touchable = GameObject.Find("GameManager").GetComponent<GameManager>();
-    }
     // Use this for initialization
     void Start () {
-	
-	}
+        blueGage.transform.localScale = redGage.transform.localScale;
+        mode = 0;
+        empty = false;
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetMouseButtonDown(0) && GameManager.touchable)
-        {
-            touchDown = true;
-        }
-        //デバッグ用（マウスイベント）
-        else if (Input.GetMouseButtonUp(0) || !GameManager.touchable)
-        {
-            touchDown = false;
-        }
-
-        if (touchDown)
-        {
-            gageProc(-1);
-        }
-        else
-        {
-            gageProc(1);
-        }
+        gageProc();
     }
 
-    void gageProc(float op)
+    void gageProc()
     {
-        gageScale.x = blueGage.transform.localScale.x;
-        if (touchDown)
+        if (mode == 1)
         {
-            gageScale.x += op * Time.deltaTime * attenuation * redGage.transform.localScale.x * (1f / touchable.slowSpeed);
+            gageScale.x += Time.deltaTime * increment * redGage.transform.localScale.x;
         }
-        else
+        else if (mode == -1)
         {
-            gageScale.x += op * Time.deltaTime * increment * redGage.transform.localScale.x;
+            gageScale.x += Time.deltaTime * attenuation * redGage.transform.localScale.x * (1f / GameManager.slowSpeed);
         }
-        gageScale.y = blueGage.transform.localScale.y;
-        blueGage.transform.localScale = gageScale;
+        gageScale.y = redGage.transform.localScale.y;
+        if (mode != 0)
+        {
+            blueGage.transform.localScale = gageScale;
+        }
+
         if (blueGage.transform.localScale.x < 0)
         {
-            blueGage.transform.localScale = new Vector2(0, blueGage.transform.localScale.y);
-            GameManager.touchable = false;
+            empty = true;
         }
         else if (blueGage.transform.localScale.x > redGage.transform.localScale.x)
         {
-            blueGage.transform.localScale = new Vector2(redGage.transform.localScale.x, redGage.transform.localScale.y);
-            GameManager.touchable = true;
+            blueGage.transform.localScale = redGage.transform.localScale;
+            mode = 0;
+            empty = false;
         }
     }
 }
