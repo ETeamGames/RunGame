@@ -65,6 +65,9 @@ public class SightScript : MonoBehaviour {
     [SerializeField, Tooltip("プレイヤースクリプト")]
     private PlayerScript playerScript;
 
+    [SerializeField, Tooltip("プレイヤーmoveScript")]
+    private MoveScript moveScript;
+
     [SerializeField, Tooltip("フィルター")]
     private ColorFilter colorFilter;
 
@@ -94,8 +97,10 @@ public class SightScript : MonoBehaviour {
             GetComponent<SpriteRenderer>().color = initCol;
             GetComponent<SpriteRenderer>().enabled = true;
             gageScript.mode = -1;
+            moveScript.enabled = false;
             GameManager.onSlow();
             colorFilter.onFilter();
+            
             if (sightFlag)
             {
                 sightFlag = false;
@@ -113,6 +118,7 @@ public class SightScript : MonoBehaviour {
             }
             GameManager.offSlow();
             colorFilter.offFilter();
+            moveScript.enabled = true;
         }
         if (sightFlag)
         {
