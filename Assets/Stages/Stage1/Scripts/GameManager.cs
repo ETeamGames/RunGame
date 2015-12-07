@@ -12,10 +12,11 @@ public class GameManager : MonoBehaviour {
     public static CONTROL state = CONTROL.GAME;
     public static PlayerScript playerScript;
     public static bool gameover = false;
+    public IsCheckPointScript playerCheckScript;
     public Animator playerAnimator;
     public Camera cam;
-    public static float slowSpeed = 1.0f;
-    public static float normalSpeed = 0;
+    public static float slowSpeed = 0.5f;
+    public static float normalSpeed = 1.0f;
     public bool touchDown = false;
     public static bool touchable = true;
     ColorFilter colorFilter;
@@ -32,6 +33,15 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         state = CONTROL.GAME;
 	}
+
+    public static void onSlow()
+    {
+        Time.timeScale = slowSpeed;
+    }
+    public static void offSlow()
+    {
+        Time.timeScale = normalSpeed;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -39,12 +49,13 @@ public class GameManager : MonoBehaviour {
         if (gameover)
         {
             Debug.Log("GameOver!!");
+            playerCheckScript.continueCheckPoint();
         }
 
         //
 
         //タッチ入力あり（マルチタッチは最初の一つのみを対象）
-        if (Input.touches != null && Input.touches.Length != 0)
+        /*if (Input.touches != null && Input.touches.Length != 0)
         {
             playerScript.attack(Input.touches[0].position);
         }
@@ -54,9 +65,9 @@ public class GameManager : MonoBehaviour {
             Time.timeScale = slowSpeed;
             colorFilter.filter = true;
             playerAnimator.SetBool("jump", true);
-        }
+        }*/
         //デバッグ用（マウスイベント）
-        else if (Input.GetMouseButtonUp(0) || !touchable)
+        /*else if (Input.GetMouseButtonUp(0) || !touchable)
         {    
             Time.timeScale = normalSpeed;
             if (touchable)
@@ -65,6 +76,6 @@ public class GameManager : MonoBehaviour {
             touchDown = false;
             colorFilter.filter = false;
             playerAnimator.SetBool("jump", false);
-        }
+        }*/
     }
 }

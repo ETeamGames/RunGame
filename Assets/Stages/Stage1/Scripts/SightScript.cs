@@ -22,8 +22,6 @@ public class SightScript : MonoBehaviour {
     /****************プライベート変数*************/
     [Space(10)]
     [Header("ここより下のプロパティはデバッグ用です。変更しないでください")]
-        [SerializeField,Tooltip("画面がタッチされたかtrue or false")]
-    private bool touchDown;
 
         [SerializeField, Tooltip("タッチしている間、照準をタッチ位置に移動させるためのフラグ")]
     private bool sightFlag;
@@ -58,6 +56,18 @@ public class SightScript : MonoBehaviour {
     [SerializeField, Tooltip("ゲージスクリプト")]
     private GageScript gageScript;
 
+    [SerializeField, Tooltip("プレイヤートラップスクリプト")]
+    private PlayerIsTrapScript piTrapScript;
+
+    [SerializeField, Tooltip("プレイヤーアニメーション")]
+    private Animator playerAnim;
+
+    [SerializeField, Tooltip("プレイヤースクリプト")]
+    private PlayerScript playerScript;
+
+    [SerializeField, Tooltip("フィルター")]
+    private ColorFilter colorFilter;
+
     void Awake()
     {
         deltaScale = sightScaleInit - sightScale;
@@ -70,30 +80,40 @@ public class SightScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-	
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        //デバッグ用（マウスイベント）
-        if (InputScript.isInputDown() && )
+        if (GameManager.state != GameManager.CONTROL.GAME)//ゲーム時以外は入力を受け付けない
+            return;
+        if (InputScript.isInputDown() & !piTrapScript.isTrap & !gageScript.empty)
         {
             scaleTimeBuffer = 0;
-
+            playerAnim.SetBool("jump", true);
             transform.rotation = initRot;
-            touchDown = true;
             GetComponent<SpriteRenderer>().color = initCol;
             GetComponent<SpriteRenderer>().enabled = true;
+            gageScript.mode = -1;
+            GameManager.onSlow();
+            colorFilter.onFilter();
             if (sightFlag)
+            {
                 sightFlag = false;
-
+            }
         }
-        else if (InputScript.isInputUp() && GameManager.state == GameManager.CONTROL.GAME || gageScript.empty)
+        else if (InputScript.isInputUp() | gageScript.empty | piTrapScript.isTrap)
         {
-            touchDown = false;
+            InputScript.refresh();
+            gageScript.mode = 1;
             sightFlag = true;
+            playerAnim.SetBool("jump", false);
+            if (!piTrapScript.isTrap)
+            {
+                playerScript.attack(cam.ScreenToWorldPoint(InputScript.getInputUp()));
+            }
+            GameManager.offSlow();
+            colorFilter.offFilter();
         }
-
         if (sightFlag)
         {
             if (GetComponent<SpriteRenderer>().color.a >= 0)

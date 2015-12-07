@@ -57,7 +57,7 @@ public class MoveScript : MonoBehaviour {
     {
         target.velocity = new Vector3(Velocity.x*direction, target.velocity.y, 0);
 		// update direction of the player
-		myScale.x = Velocity.x * direction;
+		myScale.x *= direction;
 		transform.localScale = myScale;
     }
 

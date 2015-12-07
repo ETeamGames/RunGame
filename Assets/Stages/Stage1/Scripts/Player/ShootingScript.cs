@@ -21,6 +21,7 @@ public class ShootingScript : AttackableList {
     public override void attack(Vector3 t_pos,float power)
     {
         Vector2 direction = t_pos - transform.position;
+        RigidBody.gravityScale = 0;
         RigidBody.AddForce(direction.normalized * power);
         base.attack(t_pos,power);
     }
@@ -51,5 +52,10 @@ public class ShootingScript : AttackableList {
             S_render.color = new Color(1, 1, 1, 1);
             remove();
         }
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        RigidBody.gravityScale = 3;
     }
 }

@@ -31,8 +31,6 @@ public class staticObjectScript : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        spriteRender = GetComponent<SpriteRenderer>();
-        colorFilter.sprite.AddLast(spriteRender);
 	}
 	
 	// Update is called once per frame
@@ -70,8 +68,7 @@ public class staticObjectScript : MonoBehaviour {
 
     void deleteObjct()
     {
-        colorFilter.sprite.Remove(spriteRender);
-        Destroy(gameObject);
+
     }
 
     void OnDestroy()

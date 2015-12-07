@@ -8,6 +8,11 @@ public abstract class IsDamageScript : MonoBehaviour {
 
     public abstract void damageProc(DamageScript scr);
 
+    public virtual void init()
+    {
+        hp = 1;
+    }
+
     protected virtual void OnTriggerEnter2D(Collider2D col)
     {
         damageProc(col.gameObject.GetComponent<DamageScript>());

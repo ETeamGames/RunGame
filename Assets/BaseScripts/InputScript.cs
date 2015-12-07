@@ -23,7 +23,7 @@ public class InputScript : MonoBehaviour {
     /// 入力された場所を取得します
     /// </summary>
     /// <returns>入力された場所（スクリーン座標）</returns>
-    public static Vector3? getInputDown()
+    public static Vector3 getInputDown()
     {
         if (Input.GetMouseButtonDown(0))
         {
@@ -33,14 +33,14 @@ public class InputScript : MonoBehaviour {
         {
             return Input.GetTouch(0).position;
         }
-        return null;
+        return Vector3.zero;
     }
 
     /// <summary>
     /// 入力が解除された場所を取得する
     /// </summary>
-    /// <returns>入力が解除されていない場合、nullが帰ります</returns>
-    public static Vector3? getInputUp()
+    /// <returns></returns>
+    public static Vector3 getInputUp()
     {
         if (Input.GetMouseButtonUp(0))
         {
@@ -50,11 +50,18 @@ public class InputScript : MonoBehaviour {
         {
             return Input.GetTouch(0).position;
         }
-        return null;
+        return Vector3.zero;
     }
-    
-	// Use this for initialization
-	void Start () {
+    /// <summary>
+    /// 入力状態のバッファをすべて初期化します。
+    /// </summary>
+    public static void refresh()
+    {
+        isTouch = false;
+    }
+
+    // Use this for initialization
+    void Start () {
 	}
 	
 	// Update is called once per frame
