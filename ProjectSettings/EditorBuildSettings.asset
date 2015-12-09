@@ -6,6 +6,4 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Stages/Stage1/Scenes/ADVTest.unity
-  - enabled: 1
     path: Assets/Stages/Stage1/Scenes/main.unity

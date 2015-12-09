@@ -7,6 +7,9 @@ public class PlayerScript : MonoBehaviour {
     [Tooltip("物体を飛ばす力")]
     public float power;
 
+    public GameObject colliderBuffer;
+    public GameObject colliderPrefab;
+
     [Header("ここより下はデバッグ用の表示です")]
     [Header("変更を加えないでください")]
     [Tooltip("飛ばす物体のリスト")]
@@ -19,6 +22,12 @@ public class PlayerScript : MonoBehaviour {
             first.attack(vec, power);
     }
 
+    public void init()
+    {
+        Destroy(colliderBuffer);
+        colliderBuffer = Instantiate(colliderPrefab);
+    }
+
 	// Use this for initialization
 	void Start () {
 	
@@ -26,6 +35,6 @@ public class PlayerScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    
+        colliderBuffer.transform.position = transform.position;
 	}
 }

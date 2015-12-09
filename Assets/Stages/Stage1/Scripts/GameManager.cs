@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour {
     public static float normalSpeed = 1.0f;
     public bool touchDown = false;
     public static bool touchable = true;
+    public GameObject player;
+    public Canvas gui;
+    public static GameObject checkPointParent;
+    public static GameObject nowCheckPoint;
+    public static GameObject checkPointPrefab;
     ColorFilter colorFilter;
 
     void Awake()
@@ -27,6 +32,7 @@ public class GameManager : MonoBehaviour {
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         normalSpeed = Time.timeScale;
         colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
+        checkPointParent = GameObject.Find("CheckPoints");
     }
 
 	// Use this for initialization
@@ -42,40 +48,29 @@ public class GameManager : MonoBehaviour {
     {
         Time.timeScale = normalSpeed;
     }
+
+    public void continueGame()
+    {
+        playerScript.gameObject.GetComponent<Animator>().enabled = true;
+        playerScript.gameObject.GetComponent<MoveScript>().enabled = true;
+        state = CONTROL.GAME;
+        gui.enabled = false;
+        if (GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>() != null)
+            GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>().stop();
+        playerCheckScript.continueCheckPoint();
+    }
 	
 	// Update is called once per frame
 	void Update () {
         //debug
         if (gameover)
         {
-            Debug.Log("GameOver!!");
-            playerCheckScript.continueCheckPoint();
+            state = CONTROL.GUI;
+            if (!gui.enabled)
+            {
+                GameObject.Find("GameOverEffect").AddComponent<GameOverEffectScript>();
+            }
+            gui.enabled = true;
         }
-
-        //
-
-        //タッチ入力あり（マルチタッチは最初の一つのみを対象）
-        /*if (Input.touches != null && Input.touches.Length != 0)
-        {
-            playerScript.attack(Input.touches[0].position);
-        }
-        else if (Input.GetMouseButtonDown(0) && touchable)
-        {
-            touchDown = true;
-            Time.timeScale = slowSpeed;
-            colorFilter.filter = true;
-            playerAnimator.SetBool("jump", true);
-        }*/
-        //デバッグ用（マウスイベント）
-        /*else if (Input.GetMouseButtonUp(0) || !touchable)
-        {    
-            Time.timeScale = normalSpeed;
-            if (touchable)
-                playerScript.attack(cam.ScreenToWorldPoint(Input.mousePosition));
-
-            touchDown = false;
-            colorFilter.filter = false;
-            playerAnimator.SetBool("jump", false);
-        }*/
     }
 }

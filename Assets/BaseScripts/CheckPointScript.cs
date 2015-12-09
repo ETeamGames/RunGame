@@ -2,10 +2,12 @@
 using System.Collections;
 
 public class CheckPointScript : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-	
+    public GameObject target;
+    public GameObject buffer;
+    public Animator anim;
+    // Use this for initialization
+    void Start () {
+        anim = transform.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
@@ -22,7 +24,10 @@ public class CheckPointScript : MonoBehaviour {
     {
         if (col.name.Equals("Player"))
         {
-            col.GetComponent<IsCheckPointScript>().checkPoint = this;
+            Debug.Log("チェックポイント通過!!");
+            anim.SetBool("active" , true);
+            GameManager.nowCheckPoint = gameObject;
+            GameManager.checkPointPrefab = target;
         }
     }
 }

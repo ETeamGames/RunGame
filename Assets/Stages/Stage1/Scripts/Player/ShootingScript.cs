@@ -22,7 +22,7 @@ public class ShootingScript : AttackableList {
     {
         Vector2 direction = t_pos - transform.position;
         RigidBody.gravityScale = 0;
-        RigidBody.AddForce(direction.normalized * power);
+        RigidBody.velocity= direction.normalized * power;
         base.attack(t_pos,power);
     }
 
@@ -38,7 +38,7 @@ public class ShootingScript : AttackableList {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name.Equals("PlayerCollider"))
+        if (col.tag.Equals("PlayerCollider"))
         {
             S_render.color = new Color(1, 0, 0, 1);
             add();
@@ -47,7 +47,7 @@ public class ShootingScript : AttackableList {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.name.Equals("PlayerCollider"))
+        if (col.tag.Equals("PlayerCollider"))
         {
             S_render.color = new Color(1, 1, 1, 1);
             remove();

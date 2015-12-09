@@ -110,12 +110,12 @@ public class SightScript : MonoBehaviour {
         {
             InputScript.refresh();
             gageScript.mode = 1;
-            sightFlag = true;
-            playerAnim.SetBool("jump", false);
-            if (!piTrapScript.isTrap)
+            if (!piTrapScript.isTrap & playerAnim.GetBool("jump"))
             {
                 playerScript.attack(cam.ScreenToWorldPoint(InputScript.getInputUp()));
             }
+            playerAnim.SetBool("jump", false);
+            sightFlag = true;
             GameManager.offSlow();
             colorFilter.offFilter();
             moveScript.enabled = true;

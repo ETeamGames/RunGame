@@ -9,13 +9,14 @@ public class AvilRangeScript : ItemScript{
     protected float effectTime;
     [SerializeField]
     protected float scale;
+
     protected override void addEffect(GameObject gameObject)
     {
-        ItemAvilScaleScript s = gameObject.transform.GetChild(0).gameObject.AddComponent<ItemAvilScaleScript>();
+        ItemAvilScaleScript s = gameObject.GetComponent<PlayerScript>().colliderBuffer.AddComponent<ItemAvilScaleScript>();
         s.changeTime = this.changeTime;
         s.effectTime = this.effectTime;
         s.scale = this.scale;
-        //s.start();
+        s.start();
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -29,7 +30,6 @@ public class AvilRangeScript : ItemScript{
 
     // Use this for initialization
     void Start () {
-	
 	}
 	
 	// Update is called once per frame
