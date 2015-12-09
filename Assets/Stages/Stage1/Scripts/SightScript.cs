@@ -18,6 +18,8 @@ public class SightScript : MonoBehaviour {
 
         [Tooltip("回転速度　度/秒")]
     public float rotateSpeed;
+        [Tooltip("エフェクト")]
+    public GameObject effect;
 
     /****************プライベート変数*************/
     [Space(10)]
@@ -71,6 +73,10 @@ public class SightScript : MonoBehaviour {
     [SerializeField, Tooltip("フィルター")]
     private ColorFilter colorFilter;
 
+    [SerializeField]
+    private SightLineScript[] effects;
+    private Vector2 posBuff = new Vector2();
+
     void Awake()
     {
         deltaScale = sightScaleInit - sightScale;
@@ -79,6 +85,12 @@ public class SightScript : MonoBehaviour {
         initCol = GetComponent<SpriteRenderer>().color;
         alphaAttenuation = initCol.a / sightDelTime;
         initRot = transform.rotation;
+
+        effects = new SightLineScript[7];
+        for (int n = 0; n < effects.Length; n++)
+        {
+            effects[n] = ((GameObject)Instantiate(effect,Vector3.zero,playerScript.transform.rotation)).GetComponent<SightLineScript>();
+        }
     }
 
     // Use this for initialization
@@ -100,7 +112,8 @@ public class SightScript : MonoBehaviour {
             moveScript.enabled = false;
             GameManager.onSlow();
             colorFilter.onFilter();
-            
+            Debug.Log("タッチダウン!!");
+                        
             if (sightFlag)
             {
                 sightFlag = false;
@@ -119,6 +132,10 @@ public class SightScript : MonoBehaviour {
             GameManager.offSlow();
             colorFilter.offFilter();
             moveScript.enabled = true;
+            for (int n = 0; n < effects.Length; n++)
+            {
+                effects[n].render.enabled = false;
+            }
         }
         if (sightFlag)
         {
@@ -148,6 +165,17 @@ public class SightScript : MonoBehaviour {
                 transform.position = sightPos;
                 //テスト　回転を加え絵的にかっこよく
                 transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
+            }
+            int m = (int)(Vector3.Distance(playerScript.transform.position, transform.position) / 2f);
+            for (int n = 0; n < effects.Length; n++)
+            {
+                if (n < m)
+                {
+                    effects[n].render.enabled =true;
+                    effects[n].Proc(transform, transform.position, playerScript.transform.position, n, m);
+                }
+                else if(n < effects.Length)
+                    effects[n].render.enabled = false;
             }
         }
     }

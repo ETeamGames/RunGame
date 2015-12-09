@@ -212,7 +212,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 34
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -411,7 +411,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1014041775}
   target: {fileID: 365116054}
-  velocity: {x: 5, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
   cameraOffset: {x: 5.82999992, y: 2.23000002, z: 0}
   camMoveDelay: 30
   direction: 1
@@ -561,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blueGage: {fileID: 2032031091}
   redGage: {fileID: 1655160574}
-  attenuation: .5
+  attenuation: 0
   increment: .800000012
   mode: 0
   empty: 0
@@ -598,8 +598,8 @@ RectTransform:
   m_RootOrder: 2
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -9}
-  m_SizeDelta: {x: 160, y: 48}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 130, y: 28}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &458380557
 MonoBehaviour:
@@ -757,7 +757,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 458384, guid: 57ad4edc7a415764a86e9087fda25b8a, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5.4000001
+      value: -1.08000004
       objectReference: {fileID: 0}
     - target: {fileID: 458384, guid: 57ad4edc7a415764a86e9087fda25b8a, type: 2}
       propertyPath: m_LocalPosition.y
@@ -953,6 +953,7 @@ MonoBehaviour:
   scaleTime: .300000012
   sightDelTime: 1
   rotateSpeed: 30
+  effect: {fileID: 138734, guid: 45d09a40aabe200438908cac716eb46d, type: 2}
   sightFlag: 0
   alphaAttenuation: 0
   cam: {fileID: 1014041775}
@@ -969,6 +970,7 @@ MonoBehaviour:
   playerScript: {fileID: 365116060}
   moveScript: {fileID: 365116059}
   colorFilter: {fileID: 1406697684}
+  effects: []
 --- !u!1 &929628543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1295,8 +1297,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: 0, y: -57}
-  m_SizeDelta: {x: 160, y: 48}
+  m_AnchoredPosition: {x: 0, y: -73}
+  m_SizeDelta: {x: 130, y: 28}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &1103380525
 Prefab:
@@ -1424,7 +1426,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 34
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -1472,8 +1474,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1, y: 113}
-  m_SizeDelta: {x: 408, y: 93}
+  m_AnchoredPosition: {x: 1.25, y: 42.75}
+  m_SizeDelta: {x: 310.5, y: 85.5}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1282159216
 MonoBehaviour:
@@ -1651,15 +1653,15 @@ Canvas:
   m_GameObject: {fileID: 1358046783}
   m_Enabled: 0
   serializedVersion: 2
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1014041775}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 500
 --- !u!4 &1375407059 stripped
 Transform:
   m_PrefabParentObject: {fileID: 458384, guid: 57ad4edc7a415764a86e9087fda25b8a, type: 2}
@@ -1901,7 +1903,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -1, y: 39}
+  m_AnchoredPosition: {x: -1, y: 0}
   m_SizeDelta: {x: 315, y: 55}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1552590145
@@ -1925,7 +1927,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 45
+    m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
