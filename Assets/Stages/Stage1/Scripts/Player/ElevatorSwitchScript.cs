@@ -14,7 +14,9 @@ public class ElevatorSwitchScript : SwitchScript {
             foreach(Switchable s in target)
             {
                 s.onSwitch();
+                ((ElevatorScript)s).player = col.gameObject;
             }
+            col.GetComponent<MoveScript>().enabled = false;
         }
     }
 

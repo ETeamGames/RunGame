@@ -12,7 +12,6 @@ public class staticObjectScript : MonoBehaviour {
     public Rigidbody2D rig;
     public float endScale = 0.0f;
 
-    ColorFilter colorFilter;
     SpriteRenderer spriteRender;
 
     float totalTime = 0f;
@@ -22,7 +21,6 @@ public class staticObjectScript : MonoBehaviour {
 
     void Awake()
     {
-        colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
         rig = GetComponent<Rigidbody2D>();
         rig.isKinematic = true;
         scaleRate = (transform.localScale.x - endScale) / groundDeleteTime;

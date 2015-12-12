@@ -75,7 +75,7 @@ public class SightScript : MonoBehaviour {
 
     [SerializeField]
     private SightLineScript[] effects;
-    private Vector2 posBuff = new Vector2();
+
 
     void Awake()
     {
@@ -160,7 +160,7 @@ public class SightScript : MonoBehaviour {
             if (GetComponent<SpriteRenderer>().enabled)
             {
                 scaling();
-                sightPos = cam.ScreenToWorldPoint(Input.mousePosition);
+                sightPos = cam.ScreenToWorldPoint(InputScript.getPosition());
                 sightPos.z = 0;
                 transform.position = sightPos;
                 //テスト　回転を加え絵的にかっこよく

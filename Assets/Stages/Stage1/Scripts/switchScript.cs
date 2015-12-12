@@ -6,10 +6,17 @@ public enum SWITCHFLAG
     OFF,
     NON
 }
+public enum COLLISIONMODE {
+    COLLISION,
+    TRIGGER,
+    BOTH
+}
 
 public class switchScript : MonoBehaviour {
 	public SWITCHFLAG on;
+    public COLLISIONMODE triggerMode;
     public Switchable[] list;
+    public string targetTagName;
 
 	void Awake () {
 	}
@@ -33,10 +40,18 @@ public class switchScript : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(col.gameObject.name == "Player")
+		if(col.gameObject.tag == targetTagName & (triggerMode == COLLISIONMODE.TRIGGER | triggerMode == COLLISIONMODE.BOTH))
 		{ 
 			on = SWITCHFLAG.ON;
 		}
 	}
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if (col.gameObject.tag == targetTagName & (triggerMode == COLLISIONMODE.COLLISION | triggerMode == COLLISIONMODE.BOTH))
+        {
+            on = SWITCHFLAG.ON;
+        }
+    }
 
 }
