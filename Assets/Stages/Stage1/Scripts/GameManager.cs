@@ -24,14 +24,14 @@ public class GameManager : MonoBehaviour {
     public static GameObject checkPointParent;
     public static GameObject nowCheckPoint;
     public static GameObject checkPointPrefab;
-    ColorFilter colorFilter;
+    //ColorFilter colorFilter;
 
     void Awake()
     {
         playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
         playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
         normalSpeed = Time.timeScale;
-        colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
+        //colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
         checkPointParent = GameObject.Find("CheckPoints");
     }
 
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour {
         gui.enabled = false;
         if (GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>() != null)
             GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>().stop();
+        InputScript.refresh();
         playerCheckScript.continueCheckPoint();
     }
 	

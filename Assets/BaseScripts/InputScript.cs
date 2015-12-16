@@ -1,15 +1,24 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.EventSystems;
 
 public class InputScript : MonoBehaviour {
     private static bool isTouch = false;
+    private static Vector2 touchUpPosition = Vector2.zero;
     /// <summary>
     /// 入力があるかどうかを返します
     /// </summary>
     /// <returns>true＝あり　false=無し</returns>
     public static bool isInputDown()
     {
-        return (Input.GetMouseButtonDown(0) || Input.touchCount != 0);
+        if ((Input.GetMouseButtonDown(0) | Input.touchCount != 0) & !isTouch)
+        {
+            isTouch = true;
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
     /// <summary>
     /// 入力が解除されたかを返します
@@ -17,7 +26,20 @@ public class InputScript : MonoBehaviour {
     /// <returns>true=解除 false=未解除</returns>
     public static bool isInputUp()
     {
-        return (Input.GetMouseButtonUp(0) || (Input.touchCount == 0 && isTouch));
+        if((Input.GetMouseButtonUp(0) | Input.touchCount == 0) & isTouch)
+        {
+            isTouch = false;
+            if (Input.GetMouseButtonUp(0))
+            {
+                touchUpPosition = Input.mousePosition;
+            }
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
     /// <summary>
     /// 入力された場所を取得します
@@ -36,21 +58,23 @@ public class InputScript : MonoBehaviour {
         return Vector3.zero;
     }
 
+    public static Vector3 getPosition()
+    {
+        if (Input.touchCount != 0)
+            return Input.GetTouch(0).position;
+        else if (!Input.GetMouseButton(0))
+            return touchUpPosition;
+        else
+            return Input.mousePosition;
+    }
+
     /// <summary>
     /// 入力が解除された場所を取得する
     /// </summary>
     /// <returns></returns>
     public static Vector3 getInputUp()
     {
-        if (Input.GetMouseButtonUp(0))
-        {
-            return Input.mousePosition;
-        }
-        else if(isInputUp())
-        {
-            return Input.GetTouch(0).position;
-        }
-        return Vector3.zero;
+        return touchUpPosition;
     }
     /// <summary>
     /// 入力状態のバッファをすべて初期化します。
@@ -66,6 +90,7 @@ public class InputScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        if (Input.touchCount != 0)
+            touchUpPosition = Input.GetTouch(0).position;
 	}
 }

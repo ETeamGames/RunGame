@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 
 public class ElevatorScript : Switchable{
+    public GameObject player;
     [SerializeField]
     private Vector3 offset;
     [SerializeField]
@@ -36,6 +37,10 @@ public class ElevatorScript : Switchable{
         {
             transform.position += delta * Time.fixedDeltaTime;
             timeBuffer += Time.fixedDeltaTime;
+        }
+        else if(timeBuffer >= time)
+        {
+            player.GetComponent<MoveScript>().enabled = true;
         }
     }
 	
