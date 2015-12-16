@@ -24,7 +24,9 @@ public class SightLineScript : MonoBehaviour {
 
     public void Proc(Transform t,Vector3 pos,Vector3 playerPos,int n,int length)
     {
+        //照準の方を向かせる
         transform.eulerAngles = new Vector3(0, 0,Mathf.Rad2Deg*(Mathf.Acos(Vector3.Dot(pos - playerPos, Vector3.right) / Vector3.Distance(playerPos,pos))));
+        //x,yの設定
         pos.x = t.position.x + (playerPos.x - t.position.x) / length * n;
         pos.y = t.position.y + (playerPos.y - t.position.y) / length * n;
         transform.position = pos;
@@ -32,9 +34,5 @@ public class SightLineScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	    if(active == Active.ACTIVE)
-        {
-
-        }
 	}
 }
