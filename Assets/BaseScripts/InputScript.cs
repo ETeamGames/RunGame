@@ -2,6 +2,10 @@
 using UnityEngine.EventSystems;
 
 public class InputScript : MonoBehaviour {
+    /// <summary>
+    /// タッチ可能なデバイスの場合はtrue
+    /// </summary>
+    private static bool touchable = false;
     private static bool isTouch = false;
     private static Vector2 touchUpPosition = Vector2.zero;
     /// <summary>
@@ -10,7 +14,7 @@ public class InputScript : MonoBehaviour {
     /// <returns>true＝あり　false=無し</returns>
     public static bool isInputDown()
     {
-        if ((Input.GetMouseButtonDown(0) | Input.touchCount != 0) & !isTouch)
+        if ((Input.GetMouseButtonDown(0) | (Input.touchCount != 0 & touchable)) & !isTouch)
         {
             isTouch = true;
             return true;
@@ -26,7 +30,7 @@ public class InputScript : MonoBehaviour {
     /// <returns>true=解除 false=未解除</returns>
     public static bool isInputUp()
     {
-        if((Input.GetMouseButtonUp(0) | Input.touchCount == 0) & isTouch)
+        if((Input.GetMouseButtonUp(0) | (Input.touchCount == 0 & touchable)) & isTouch)
         {
             isTouch = false;
             if (Input.GetMouseButtonUp(0))
@@ -63,7 +67,7 @@ public class InputScript : MonoBehaviour {
         if (Input.touchCount != 0)
             return Input.GetTouch(0).position;
         else if (!Input.GetMouseButton(0))
-            return touchUpPosition;
+            return Input.mousePosition;
         else
             return Input.mousePosition;
     }
@@ -82,6 +86,14 @@ public class InputScript : MonoBehaviour {
     public static void refresh()
     {
         isTouch = false;
+    }
+
+    void Awake()
+    {
+        if (Application.platform == RuntimePlatform.Android | Application.platform == RuntimePlatform.IPhonePlayer)
+        {
+            touchable = true;
+        }
     }
 
     // Use this for initialization

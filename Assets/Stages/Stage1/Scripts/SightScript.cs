@@ -112,8 +112,7 @@ public class SightScript : MonoBehaviour {
             moveScript.enabled = false;
             GameManager.onSlow();
             colorFilter.onFilter();
-            Debug.Log("タッチダウン!!");
-                        
+            Debug.Log("タッチダウン!!");          
             if (sightFlag)
             {
                 sightFlag = false;
