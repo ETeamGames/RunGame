@@ -59,6 +59,7 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>().stop();
         InputScript.refresh();
         playerCheckScript.continueCheckPoint();
+        player.GetComponent<MoveScript>().ResumePlayerMovement();
     }
 	
 	// Update is called once per frame
