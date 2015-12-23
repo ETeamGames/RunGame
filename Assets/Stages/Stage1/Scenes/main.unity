@@ -415,6 +415,7 @@ MonoBehaviour:
   cameraOffset: {x: 5.82999992, y: 2.23000002, z: 0}
   camMoveDelay: 30
   direction: 1
+  moveOn: 1
 --- !u!114 &365116060
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1948,7 +1949,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 1000
   m_Sprite: {fileID: 21300000, guid: bfa620e3b3e8cbf4f9bdf8bd44b1d826, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: .308999985}
 --- !u!1 &1413722547

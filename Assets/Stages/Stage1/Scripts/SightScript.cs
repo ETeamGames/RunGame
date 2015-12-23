@@ -90,6 +90,7 @@ public class SightScript : MonoBehaviour {
         for (int n = 0; n < effects.Length; n++)
         {
             effects[n] = ((GameObject)Instantiate(effect,Vector3.zero,playerScript.transform.rotation)).GetComponent<SightLineScript>();
+            effects[n].render.enabled = false;
         }
     }
 
@@ -131,6 +132,7 @@ public class SightScript : MonoBehaviour {
             GameManager.offSlow();
             colorFilter.offFilter();
             moveScript.enabled = true;
+            Debug.Log("LineEffect Enabled");
             for (int n = 0; n < effects.Length; n++)
             {
                 effects[n].render.enabled = false;
@@ -165,16 +167,19 @@ public class SightScript : MonoBehaviour {
                 //テスト　回転を加え絵的にかっこよく
                 transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
             }
-            int m = (int)(Vector3.Distance(playerScript.transform.position, transform.position) / 2f);
-            for (int n = 0; n < effects.Length; n++)
+            if (InputScript.getIsTouch())
             {
-                if (n < m)
+                int m = (int)(Vector3.Distance(playerScript.transform.position, transform.position) / 2f);
+                for (int n = 0; n < effects.Length; n++)
                 {
-                    effects[n].render.enabled =true;
-                    effects[n].Proc(transform, transform.position, playerScript.transform.position, n, m);
+                    if (n < m)
+                    {
+                        effects[n].render.enabled = true;
+                        effects[n].Proc(transform, transform.position, playerScript.transform.position, n, m);
+                    }
+                    else
+                        effects[n].render.enabled = false;
                 }
-                else if(n < effects.Length)
-                    effects[n].render.enabled = false;
             }
         }
     }

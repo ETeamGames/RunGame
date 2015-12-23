@@ -40,7 +40,7 @@ public class ElevatorScript : Switchable{
         }
         else if(timeBuffer >= time)
         {
-            player.GetComponent<MoveScript>().enabled = true;
+            player.GetComponent<MoveScript>().ResumePlayerMovement();
         }
     }
 	

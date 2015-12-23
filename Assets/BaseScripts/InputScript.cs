@@ -61,7 +61,10 @@ public class InputScript : MonoBehaviour {
         }
         return Vector3.zero;
     }
-
+    /// <summary>
+    /// マウスポインタ、あるいはタッチされている場所を返します
+    /// </summary>
+    /// <returns>マウスポインタあるいはタッチされた座標</returns>
     public static Vector3 getPosition()
     {
         if (Input.touchCount != 0)
@@ -87,7 +90,14 @@ public class InputScript : MonoBehaviour {
     {
         isTouch = false;
     }
-
+    /// <summary>
+    /// タッチされているかを返します
+    /// </summary>
+    /// <returns>タッチされているか,true or false</returns>
+    public static bool getIsTouch()
+    {
+        return isTouch;
+    }
     void Awake()
     {
         if (Application.platform == RuntimePlatform.Android | Application.platform == RuntimePlatform.IPhonePlayer)

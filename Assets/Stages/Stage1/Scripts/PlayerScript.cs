@@ -32,9 +32,7 @@ public class PlayerScript : MonoBehaviour {
 	void Start () {
 	
 	}
-	
-	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         colliderBuffer.transform.position = transform.position;
 	}
 }

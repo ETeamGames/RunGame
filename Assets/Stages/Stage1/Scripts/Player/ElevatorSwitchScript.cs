@@ -16,7 +16,7 @@ public class ElevatorSwitchScript : SwitchScript {
                 s.onSwitch();
                 ((ElevatorScript)s).player = col.gameObject;
             }
-            col.GetComponent<MoveScript>().enabled = false;
+            col.GetComponent<MoveScript>().StopPlayerMovement();
         }
     }
 
