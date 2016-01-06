@@ -1,37 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
-public class doorScript : MonoBehaviour {
-	public bool openFlag;
-
+public class doorScript : Switchable {
+    public Animator anim;
+    public BoxCollider2D col;
 
 	// Use this for initialization
 	void Start () {
-		openFlag = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (openFlag)
-			DoorOpened ();
 	}
 
-	void DoorOpened () {
-		Destroy (this.gameObject);
-	}
-
-	void OnCollisionEnter2D(Collision2D col)
-	{
-		// collision to the player
-		if(col.gameObject.name == "Player")
-		{ 
-			Debug.Log ("collision to the player");
-			openFlag = true;
-		}
-	}
-
-	public void SetOpenFlag(){
-		this.openFlag = true;
-	}
-
+    public override void onSwitch()
+    {
+        anim.enabled = true;
+        col.enabled = false;
+    }
 }
