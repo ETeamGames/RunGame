@@ -53,7 +53,7 @@ public class TrapScript : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D col)
 	{
 		IsTrapScript s = col.gameObject.GetComponent<IsTrapScript>();
-		if(s != null)
+		if(s != null && enabled == true)
 		{
 			// send this script information to the player
 			s.callAnimation(this);

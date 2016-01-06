@@ -14,7 +14,7 @@ public class PlayerIsTrapScript : IsTrapScript{
 		anim.SetBool(trap.TrapName, true);
 		if (trap.TrapName.Equals ("thunderTrap")) {
 			GameManager.touchable = false;
-			GetComponent<MoveScript>().enabled = false;
+			GetComponent<MoveScript>().StopPlayerMovement();
 		} else if (trap.TrapName.Equals ("TestTrap")) {
 			GetComponent<MoveScript>().StopPlayerMovement();
 		}
@@ -41,7 +41,6 @@ public class PlayerIsTrapScript : IsTrapScript{
 			isTrap = false;
 			anim.SetBool(trapScript.TrapName, false);
 			GameManager.touchable = true;
-			//GetComponent<MoveScript>().enabled = true;
 			GetComponent<MoveScript>().ResumePlayerMovement();
 		}
 	}

@@ -11,16 +11,26 @@ public class MoveScript : MonoBehaviour {
 	[SerializeField]
 	private Vector3 velocity;
 	[SerializeField]
-	private int camMoveDelay;
+	private Vector3 cameraOffset;
 	[SerializeField]
-	public GameObject ghostPlayer;
+	private int camMoveDelay;
 	// direction of the player's movement, should be given 1 or -1
 	public float direction;
 	private Vector2 myScale;
 	// whether the player moves or not
 	public bool moveOn = true;
-	// use for player and camera movement
-	public Vector3 nextVector;
+	
+	public Vector3 CameraOffset
+	{
+		get
+		{
+			return cameraOffset;
+		}
+		set
+		{
+			cameraOffset = value;
+		}
+	}
 	
 	public Vector3 Velocity
 	{
@@ -34,32 +44,36 @@ public class MoveScript : MonoBehaviour {
 			target.velocity = value;
 		}
 	}
-
 	void Awake()
 	{
 		
 	}
 	
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
+		target.velocity = new Vector3(Velocity.x,target.velocity.y,0);
 		myScale = transform.localScale;
+		// additional part
+		if(cam != null) cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
 	}
 	
 	void FixedUpdate()
 	{
-		nextVector = new Vector3 (Velocity.x * direction, target.velocity.y, 0);
-		if (moveOn && nextVector.x != -1) {
+		if (moveOn) {
+			target.velocity = new Vector3(Velocity.x*direction, target.velocity.y, 0);
 			// update direction of the player
 			myScale.x *= direction;
 			transform.localScale = myScale;
-			target.velocity = nextVector;
-			//Debug.Log ("Player = "+target.velocity.x);
+		} 
+		if(cam != null)
+		{
+			cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
 		}
+		
 	}
 	
 	// Update is called once per frame
 	void Update () {   
-
 	}
 	
 	// stop the player's movement

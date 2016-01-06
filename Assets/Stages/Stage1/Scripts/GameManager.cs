@@ -28,10 +28,8 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
-        playerAnimator = GameObject.Find("Player").GetComponent<Animator>();
+        playerScript = player.GetComponent<PlayerScript>();
         normalSpeed = Time.timeScale;
-        //colorFilter = GameObject.Find("ColorFilter").GetComponent<ColorFilter>();
         checkPointParent = GameObject.Find("CheckPoints");
     }
 

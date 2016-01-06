@@ -17,6 +17,7 @@ public class switchScript : MonoBehaviour {
     public COLLISIONMODE triggerMode;
     public Switchable[] list;
     public string targetTagName;
+    public Animator anim;
 
 	void Awake () {
 	}
@@ -29,6 +30,8 @@ public class switchScript : MonoBehaviour {
 	void Update () {
         if (on == SWITCHFLAG.ON)
         {
+            if (anim != null)
+                anim.enabled = true;
             foreach (Switchable s in list)
             {
                 if(s != null)
