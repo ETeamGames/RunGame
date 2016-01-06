@@ -50,7 +50,7 @@ public class MoveScript : MonoBehaviour {
 	}
 	
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		target.velocity = new Vector3(Velocity.x,target.velocity.y,0);
 		myScale = transform.localScale;
 		// additional part

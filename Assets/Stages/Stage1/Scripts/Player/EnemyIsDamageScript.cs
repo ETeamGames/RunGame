@@ -14,6 +14,18 @@ public class EnemyIsDamageScript : IsDamageScript{
         }
     }
 
+    protected override void OnCollisionEnter2D(Collision2D col)
+    {
+        if(!col.gameObject.tag.Equals("EnemyBullet"))
+            base.OnCollisionEnter2D(col);
+    }
+
+    protected override void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.gameObject.tag.Equals("EnemyBullet"))
+            base.OnTriggerEnter2D(col);
+    }
+
     // Use this for initialization
     void Start () {
 	

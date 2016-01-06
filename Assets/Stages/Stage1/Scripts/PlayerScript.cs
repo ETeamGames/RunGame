@@ -15,6 +15,7 @@ public class PlayerScript : MonoBehaviour {
     [Tooltip("飛ばす物体のリスト")]
     public AttackableList end;
     public AttackableList first;
+    public Vector3 pos;
     //攻撃可能物体を座標に飛ばす
     public void attack(Vector3 vec)
     {
