@@ -84,7 +84,7 @@ public class TrapScript : MonoBehaviour {
 		{
 			//GetComponent<Animator>().SetBool("activation", false);
 			//デバッグ
-			GetComponent<SpriteRenderer>().color = Color.black;
+			GetComponent<SpriteRenderer>().color = Color.red;
 			timeBuffer = -1;
 			// delete a trap object or some components
 			Destroy(this.GetComponent<BoxCollider2D>());
