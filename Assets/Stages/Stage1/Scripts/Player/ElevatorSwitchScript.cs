@@ -3,6 +3,8 @@ using System.Collections;
 using System;
 
 public class ElevatorSwitchScript : SwitchScript {
+	GameObject ghostPlayer;
+
     protected override void OnCollisionEnter2D(Collision2D col)
     {
     }
@@ -17,14 +19,17 @@ public class ElevatorSwitchScript : SwitchScript {
                 ((ElevatorScript)s).setPlayer(col.gameObject);
             }
             if(!on)
+			{
                 col.GetComponent<MoveScript>().StopPlayerMovement();
+				ghostPlayer.GetComponent<GhostPlayerScript>().StopGhostPlayerMovement();
+			}
             on = true;
         }
     }
 
     // Use this for initialization
     void Start () {
-	
+		ghostPlayer = GameObject.Find("GhostPlayer");
 	}
 	
 	// Update is called once per frame
