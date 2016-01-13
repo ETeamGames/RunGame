@@ -5,32 +5,14 @@ using System.Collections.Generic;
 
 public class MoveScript : MonoBehaviour {
 	[SerializeField]
-	private Camera cam;
-	[SerializeField]
 	private Rigidbody2D target;
 	[SerializeField]
 	private Vector3 velocity;
-	[SerializeField]
-	private Vector3 cameraOffset;
-	[SerializeField]
-	private int camMoveDelay;
 	// direction of the player's movement, should be given 1 or -1
 	public float direction;
 	private Vector2 myScale;
 	// whether the player moves or not
 	public bool moveOn = true;
-	
-	public Vector3 CameraOffset
-	{
-		get
-		{
-			return cameraOffset;
-		}
-		set
-		{
-			cameraOffset = value;
-		}
-	}
 	
 	public Vector3 Velocity
 	{
@@ -53,8 +35,6 @@ public class MoveScript : MonoBehaviour {
 	protected virtual void Start () {
 		target.velocity = new Vector3(Velocity.x,target.velocity.y,0);
 		myScale = transform.localScale;
-		// additional part
-		if(cam != null) cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
 	}
 	
 	void FixedUpdate()
@@ -64,12 +44,7 @@ public class MoveScript : MonoBehaviour {
 			// update direction of the player
 			myScale.x *= direction;
 			transform.localScale = myScale;
-		} 
-		if(cam != null)
-		{
-			cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
 		}
-		
 	}
 	
 	// Update is called once per frame
