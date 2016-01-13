@@ -20,6 +20,8 @@ public class ElevatorScript : Switchable{
     private float timeBuffer;
     private Vector3 delta;
 
+	GameObject ghostPlayer;
+
     public override void onSwitch()
     {
         flag = true;
@@ -38,6 +40,7 @@ public class ElevatorScript : Switchable{
             delta.y = offset.y / time;
         if(offset.z != 0)
             delta.z = offset.z / time;
+		ghostPlayer = GameObject.Find("GhostPlayer");
 	}
 
     void FixedUpdate()
@@ -50,6 +53,7 @@ public class ElevatorScript : Switchable{
         else if(timeBuffer >= time)
         {
             player.GetComponent<MoveScript>().ResumePlayerMovement();
+			ghostPlayer.GetComponent<GhostPlayerScript>().ResumeGhostPlayerMovement();
         }
     }
 
