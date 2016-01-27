@@ -13,6 +13,7 @@ GameObject:
   - 58: {fileID: 5859140}
   - 114: {fileID: 11481110}
   - 114: {fileID: 11446578}
+  - 114: {fileID: 11469946}
   m_Layer: 8
   m_Name: Ball
   m_TagString: DynamicObject
@@ -73,6 +74,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 100
+  anim: {fileID: 0}
+--- !u!114 &11469946
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fb293e461489148ac9ef888dbff57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}
+  rotateSpeed: 10
+  scaleSpeed: 0
 --- !u!114 &11481110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 989d2309b2bf1ef40a9dc7f53823c673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sight: {fileID: 114504, guid: fa06a9b9bf5c1aa46841e18a898d8dda, type: 2}
 --- !u!212 &21200780
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -116,7 +133,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: rotateSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: sight
+      value: 
+      objectReference: {fileID: 114504, guid: fa06a9b9bf5c1aa46841e18a898d8dda, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130318}

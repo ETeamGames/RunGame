@@ -7,6 +7,7 @@ public class DamageScript : MonoBehaviour {
     protected int damage;
     [SerializeField]
     protected Animator anim;
+    protected EnemyMoveScript e;
 
     public int getDamage()
     {
@@ -17,19 +18,21 @@ public class DamageScript : MonoBehaviour {
     {
         if (col.gameObject.tag == "Player")
         {
-            if(anim!=null)
+            if (anim != null)
+            {
                 anim.SetTrigger("explosionTrigger");
-            gameObject.GetComponent<EnemyMoveScript>().StopPlayerMovement();
+            }
+            if(e != null)
+                gameObject.GetComponent<EnemyMoveScript>().StopPlayerMovement();
         }
     }
 
 	// Use this for initialization
-	void Start () {
-	
-	}
+	protected virtual void Start () {
+        e = gameObject.GetComponent<EnemyMoveScript>();
+    }
 	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	protected virtual void Update() {
+    }
 }

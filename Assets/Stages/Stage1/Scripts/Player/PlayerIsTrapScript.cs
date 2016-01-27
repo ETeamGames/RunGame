@@ -32,16 +32,19 @@ public class PlayerIsTrapScript : IsTrapScript{
 	
 	// Update is called once per frame
 	void Update () {
-		if (timeBuffer > 0)
-		{
-			timeBuffer -= Time.deltaTime;
-		}
-		else if(timeBuffer < 0)
-		{
-			isTrap = false;
-			anim.SetBool(trapScript.TrapName, false);
-			GameManager.touchable = true;
-			GetComponent<MoveScript>().ResumePlayerMovement();
-		}
+        if (isTrap)
+        {
+            if (timeBuffer > 0)
+            {
+                timeBuffer -= Time.deltaTime;
+            }
+            else if (timeBuffer < 0)
+            {
+                isTrap = false;
+                anim.SetBool(trapScript.TrapName, false);
+                GameManager.touchable = true;
+                GetComponent<MoveScript>().ResumePlayerMovement();
+            }
+        }
 	}
 }

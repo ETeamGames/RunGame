@@ -27,9 +27,9 @@ TagManager:
   - StaticGrupe
   - ShootingCollider
   - EnemyBullet
-  - 
-  - 
-  - 
+  - Enemy
+  - Transparent
+  - WallAndFloor
   - 
   - 
   - 
