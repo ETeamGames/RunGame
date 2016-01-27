@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class ShootingScript : AttackableList {
+    public GameObject sight;
+    private GameObject sight_instance;
     private SpriteRenderer s_render;
     private Rigidbody2D rigidBody;
     public SpriteRenderer S_render
@@ -28,8 +30,9 @@ public class ShootingScript : AttackableList {
 
     // Use this for initialization
     void Start () {
-	
-	}
+        sight_instance = (GameObject)Instantiate(sight, transform.position, sight.transform.rotation);
+        sight_instance.GetComponent<BallSightScript>().parent = gameObject;
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -40,7 +43,9 @@ public class ShootingScript : AttackableList {
     {
         if (col.tag.Equals("PlayerCollider"))
         {
-            S_render.color = new Color(1, 0, 0, 1);
+            sight_instance.GetComponent<SpriteRenderer>().enabled = true;
+            sight_instance.GetComponent<BallSightScript>().enabled = true;
+            //S_render.color = new Color(1, 0, 0, 1);
             add();
         }
     }
@@ -49,7 +54,9 @@ public class ShootingScript : AttackableList {
     {
         if (col.tag.Equals("PlayerCollider"))
         {
-            S_render.color = new Color(1, 1, 1, 1);
+            sight_instance.GetComponent<SpriteRenderer>().enabled = false;
+            sight_instance.GetComponent<BallSightScript>().enabled = false;
+            //S_render.color = new Color(1, 1, 1, 1);
             remove();
         }
     }
