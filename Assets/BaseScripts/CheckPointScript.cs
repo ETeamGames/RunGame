@@ -28,6 +28,7 @@ public class CheckPointScript : MonoBehaviour {
             anim.SetBool("active" , true);
             GameManager.nowCheckPoint = gameObject;
             GameManager.checkPointPrefab = target;
+            GameManager.checkPoint();
         }
     }
 }

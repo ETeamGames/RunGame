@@ -1,7 +1,4 @@
 ﻿using UnityEngine;
-using UnityEditor;
-using System;
-using System.Collections;
 
 public class ElevatorScript : Switchable{
 
@@ -47,9 +44,10 @@ public class ElevatorScript : Switchable{
             transform.position = afterPosition + delta * timeBuffer;
             timeBuffer += Time.fixedDeltaTime;
         }
-        else if(timeBuffer >= time)
+        else if(flag && timeBuffer >= time)
         {
             player.GetComponent<MoveScript>().ResumePlayerMovement();
+            flag = false;
         }
     }
 

@@ -60,6 +60,10 @@ public class ShootingScript : AttackableList {
             remove();
         }
     }
+    void OnDisable()
+    {
+        Destroy(sight_instance);
+    }
 
     void OnCollisionEnter2D(Collision2D col)
     {

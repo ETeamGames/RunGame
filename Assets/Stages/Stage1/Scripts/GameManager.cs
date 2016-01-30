@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class GameManager : MonoBehaviour {
@@ -8,8 +9,11 @@ public class GameManager : MonoBehaviour {
         GAME,
         GUI
     }
-
-    public static CONTROL state = CONTROL.GAME;
+    private static int score;
+    //チェックポイント追加時のスコア
+    private static int score_buffer;
+    public static float startTime;
+    public static CONTROL state = CONTROL.NON;
     public static PlayerScript playerScript;
     public static bool gameover = false;
     public IsCheckPointScript playerCheckScript;
@@ -24,18 +28,34 @@ public class GameManager : MonoBehaviour {
     public static GameObject checkPointParent;
     public static GameObject nowCheckPoint;
     public static GameObject checkPointPrefab;
-    //ColorFilter colorFilter;
+    public static Text scoreText;
+    
+    public static int Score{
+        set{
+            score = value;
+            scoreText.text = score.ToString();
+        }
+        get
+        {
+            return score;
+        }
+    }
 
     void Awake()
     {
+        //画面解像度を設定
+        Screen.SetResolution(1920,1080, false, 60);
         playerScript = player.GetComponent<PlayerScript>();
         normalSpeed = Time.timeScale;
         checkPointParent = GameObject.Find("CheckPoints");
+        scoreText = GameObject.Find("ScoreText").gameObject.GetComponent<Text>();
+        score = 0;
     }
 
 	// Use this for initialization
 	void Start () {
-        state = CONTROL.GAME;
+        state = CONTROL.NON;
+        playerScript.gameObject.GetComponent<MoveScript>().StopPlayerMovement();
 	}
 
     public static void onSlow()
@@ -45,6 +65,11 @@ public class GameManager : MonoBehaviour {
     public static void offSlow()
     {
         Time.timeScale = normalSpeed;
+    }
+
+    public static void checkPoint()
+    {
+        score_buffer = score;
     }
 
     public void continueGame()
@@ -57,6 +82,7 @@ public class GameManager : MonoBehaviour {
             GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>().stop();
         InputScript.refresh();
         playerCheckScript.continueCheckPoint();
+        score = score_buffer;
         player.GetComponent<MoveScript>().ResumePlayerMovement();
     }
 	
