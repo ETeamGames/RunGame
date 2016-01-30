@@ -7,6 +7,7 @@ public class EnemyIsDamageScript : IsDamageScript{
     public Collider2D cc2d;
     public Animator animator;
     public MonoBehaviour script;
+    public int score;
     private bool death;
 
     void Awake()
@@ -53,7 +54,10 @@ public class EnemyIsDamageScript : IsDamageScript{
             {
                 gameObject.GetComponent<KaboonScript>().setKaboon();
             }
+            //爆発アニメーション
             explosion();
+            //スコアに追加
+            GameManager.Score += score;
         }
     }
 

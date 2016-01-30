@@ -30,8 +30,13 @@ public class KaboonScript : MonoBehaviour {
         flag = true;
     }
 
-	// Use this for initialization
-	void Start () {
+    void OnDisable()
+    {
+        Destroy(go);
+    }
+
+    // Use this for initialization
+    void Start () {
         flag = false;
         timeBuffer = 0;
 	}
