@@ -676,19 +676,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 10231286, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
       propertyPath: m_Text
-      value: stage
+      value: 'CSV
+
+        Gene
+
+        Stage'
       objectReference: {fileID: 0}
     - target: {fileID: 11476338, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
       propertyPath: movable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11481082, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
       propertyPath: movable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11476338, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
       propertyPath: nextStageName
-      value: no-stage
+      value: CSVGeneratorStage
+      objectReference: {fileID: 0}
+    - target: {fileID: 10231286, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
+      propertyPath: m_TabSize
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 10231286, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
+      propertyPath: m_Anchor
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
