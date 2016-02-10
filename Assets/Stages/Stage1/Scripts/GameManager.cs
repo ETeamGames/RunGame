@@ -16,11 +16,11 @@ public class GameManager : MonoBehaviour {
     public static CONTROL state = CONTROL.NON;
     public static PlayerScript playerScript;
     public static bool gameover = false;
+    public static float slowSpeed = 0.5f;
+    public static float normalSpeed = 1.0f;
     public IsCheckPointScript playerCheckScript;
     public Animator playerAnimator;
     public Camera cam;
-    public static float slowSpeed = 0.5f;
-    public static float normalSpeed = 1.0f;
     public bool touchDown = false;
     public static bool touchable = true;
     public GameObject player;
@@ -56,7 +56,9 @@ public class GameManager : MonoBehaviour {
 	void Start () {
         state = CONTROL.NON;
         playerScript.gameObject.GetComponent<MoveScript>().StopPlayerMovement();
-	}
+        gui.enabled = false;
+        gameover = false;
+    }
 
     public static void onSlow()
     {
