@@ -70,4 +70,9 @@ public class GoalScript : MonoBehaviour {
         goalFlag = false;
         goalCanvas.enabled = false;
     }
+
+    public void End()
+    {
+        Application.LoadLevel("SelectStage");
+    }
 }
