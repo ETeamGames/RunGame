@@ -92,6 +92,22 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: aaa.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: baa.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: temp.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: generatedObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 420898, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
       propertyPath: m_LocalPosition.x
       value: 63.3199997
@@ -124,6 +140,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: temp.Array.data[0]
+      value: 
+      objectReference: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: temp.Array.data[1]
+      value: 
+      objectReference: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: generatedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
+    - target: {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+      propertyPath: generatedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
   m_IsPrefabParent: 0

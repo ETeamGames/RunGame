@@ -17,7 +17,8 @@ public class TitleManager : MonoBehaviour
 	void OnGUI ()
 	{
 		// ゲーム中ではなく、タッチまたはマウスクリック直後であればtrueを返す。
-		if (IsPlaying () == false && Event.current.type == EventType.MouseDown) {
+		if (IsPlaying () == false && Event.current.type == EventType.MouseDown) 
+		{
 			GameStart ();
 		}
 	}

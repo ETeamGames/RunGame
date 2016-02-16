@@ -6,7 +6,7 @@ using System;
 public class Generator : MonoBehaviour {
 	[Button("Process", "Generate all objects")] public int button;
 	public string inputDataPath = "CSV/OutputData/stageData01";
-	public GameObject temp;
+	public GameObject[] generatedObjects;
 	public Vector3 initialPos = new Vector3(0,0,0);
 	public Vector3 nextPos = new Vector3(0,0,0);
 	public float unitX = 0.64f;
@@ -19,13 +19,13 @@ public class Generator : MonoBehaviour {
 		Init ();
 		TextAsset csv = Resources.Load(inputDataPath) as TextAsset;
 		StringReader reader = new StringReader(csv.text);
-		while (reader.Peek() > -1) {
+		while (reader.Peek() > -1) 
+		{
 			//read
 			string line = reader.ReadLine();
 			string[] values = line.Split(',');
 			Generate (values);
 		}
-		//Generate ();
 	}
 
 	void Init()
@@ -34,26 +34,13 @@ public class Generator : MonoBehaviour {
 		nextPos = new Vector3(0,0,0);
 	}
 
-	void ReInit(int type){
-		initialPos = new Vector3(0,0,0);
-		nextPos = new Vector3(0,0,0);
-		switch(type)
-		{
-			case 1:
-				temp = (GameObject)Resources.Load ("Prefabs/Floor");
-				break;
-			default:
-				temp = (GameObject)Resources.Load ("Prefabs/Floor");
-				break;
-		}
-	}
-
 	void Generate(string[] str)
 	{
-		ReInit (int.Parse(str[2]));
+		Init();
 		nextPos = new Vector3 (unitX*float.Parse(str[0]),unitY*float.Parse(str[1]),0);
-		if (int.Parse (str [2]) != 0) {
-			GameObject obj = (GameObject)Instantiate (temp, nextPos, Quaternion.identity);
+		if (int.Parse (str [2]) != 0 && int.Parse (str [2]) < generatedObjects.Length) 
+		{
+			GameObject obj = (GameObject)Instantiate (generatedObjects[int.Parse (str [2])], nextPos, Quaternion.identity);
 			obj.transform.parent = transform;
 		}
 	}

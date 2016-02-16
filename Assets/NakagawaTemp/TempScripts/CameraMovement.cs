@@ -10,20 +10,14 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField]
 	private Vector3 cameraOffset;
 	
-	public Vector3 CameraOffset {
+	public Vector3 CameraOffset 
+	{
 		get { return cameraOffset; }
 		set { cameraOffset = value; }
 	}
 
-	// Use this for initialization
-	void Start () {
-	}
-	
-	// Update is called once per frame
-	void Update () {	
-	}
-
-	void FixedUpdate () {
+	void FixedUpdate ()
+	{
 		GetComponent<Transform>().position = target.GetComponent<Transform>().position+CameraOffset;
 		GetComponent<Transform> ().Translate (0,0,Z_DIST);
 	}
