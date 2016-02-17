@@ -2,7 +2,8 @@
 using System;
 using System.Collections;
 
-public abstract class IsDamageScript : MonoBehaviour {
+public abstract class IsDamageScript : MonoBehaviour
+{
     [SerializeField]
     protected int hp;
 

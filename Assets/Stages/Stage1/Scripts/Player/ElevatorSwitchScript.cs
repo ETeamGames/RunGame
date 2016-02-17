@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class ElevatorSwitchScript : SwitchScript {
+public class ElevatorSwitchScript : SwitchScript
+{
     protected override void OnCollisionEnter2D(Collision2D col)
     {
     }
@@ -23,12 +24,14 @@ public class ElevatorSwitchScript : SwitchScript {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

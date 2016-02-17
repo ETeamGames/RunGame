@@ -26,12 +26,14 @@ public class PlayerIsTrapScript : IsTrapScript{
 	}
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		isTrap = false;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (isTrap)
         {
             if (timeBuffer > 0)

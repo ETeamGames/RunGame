@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GoalScript : MonoBehaviour {
+public class GoalScript : MonoBehaviour
+{
 
     [SerializeField]
     private SpriteRenderer colorFilter;
@@ -36,12 +37,14 @@ public class GoalScript : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (goalFlag & timeBuffer <= fadeTime)
         {
             timeBuffer += Time.deltaTime;

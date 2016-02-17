@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class EnemyIsDamageScript : IsDamageScript{
+public class EnemyIsDamageScript : IsDamageScript
+{
     private GameObject[] part;
     public Collider2D cc2d;
     public Animator animator;
@@ -74,12 +75,14 @@ public class EnemyIsDamageScript : IsDamageScript{
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

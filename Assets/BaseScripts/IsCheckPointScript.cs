@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class IsCheckPointScript : MonoBehaviour {
+public class IsCheckPointScript : MonoBehaviour
+{
     public PlayerIsDamageScript pidScript;
 
     public void continueCheckPoint()

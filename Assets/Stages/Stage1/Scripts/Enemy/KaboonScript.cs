@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class KaboonScript : MonoBehaviour {
+public class KaboonScript : MonoBehaviour
+{
     /// <summary>
     /// 爆発用オブジェクト
     /// </summary>
@@ -36,13 +37,15 @@ public class KaboonScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         flag = false;
         timeBuffer = 0;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if(flag & scaleEffectTime > timeBuffer)
         {
             go.transform.localScale = (scale / scaleEffectTime) * timeBuffer;

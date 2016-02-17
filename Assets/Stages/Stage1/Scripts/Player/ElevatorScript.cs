@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class ElevatorScript : Switchable{
+public class ElevatorScript : Switchable
+{
 
     private GameObject player;
     [Button("auto", "Apply")]
@@ -25,7 +26,8 @@ public class ElevatorScript : Switchable{
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         offset = afterPosition - transform.position;
         afterPosition = transform.position;
         flag = false;

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BackgroundController : MonoBehaviour {
+public class BackgroundController : MonoBehaviour
+{
     public GameObject nextBackground;
     public SpriteRenderer spriteRender;
 
@@ -13,12 +14,14 @@ public class BackgroundController : MonoBehaviour {
     {
     }
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         Instantiate(nextBackground,Vector3.zero , transform.rotation);
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
     void OnTriggerEnter2D(Collider2D col)

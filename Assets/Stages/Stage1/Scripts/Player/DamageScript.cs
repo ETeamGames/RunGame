@@ -2,7 +2,8 @@
 using System;
 using System.Collections;
 
-public class DamageScript : MonoBehaviour {
+public class DamageScript : MonoBehaviour
+{
     [SerializeField]
     protected int damage;
     [SerializeField]
@@ -28,11 +29,13 @@ public class DamageScript : MonoBehaviour {
     }
 
 	// Use this for initialization
-	protected virtual void Start () {
+	protected virtual void Start ()
+    {
         e = gameObject.GetComponent<EnemyMoveScript>();
     }
 	
 	// Update is called once per frame
-	protected virtual void Update() {
+	protected virtual void Update()
+    {
     }
 }

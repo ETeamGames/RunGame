@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SightScript : MonoBehaviour {
+public class SightScript : MonoBehaviour
+{
     /****************パブリック変数***************/
     [Header("プロパティ名にカーソルを置くと説明が表示されます")]
         [Tooltip("照準画像の大きさ")]
@@ -95,11 +96,13 @@ public class SightScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (GameManager.state != GameManager.CONTROL.GAME)//ゲーム時以外は入力を受け付けない
             return;
         if (InputScript.isInputDown() & !piTrapScript.isTrap & !gageScript.empty)

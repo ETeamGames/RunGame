@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GameOverEffectScript : MonoBehaviour {
+public class GameOverEffectScript : MonoBehaviour
+{
     [SerializeField]
     private SpriteRenderer effectSprite;
     [SerializeField]
@@ -12,7 +13,8 @@ public class GameOverEffectScript : MonoBehaviour {
     private float deltaScale;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         deltaScale = transform.localScale.x / effectTime;
         timeBuffer = effectTime;
         scaleBuffer = transform.localScale;
@@ -26,7 +28,8 @@ public class GameOverEffectScript : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (GameManager.gameover && timeBuffer >= 0)
         {
             //アニメーションの停止、あるいは死亡アニメーション再生

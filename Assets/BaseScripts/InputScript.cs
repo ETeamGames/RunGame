@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class InputScript : MonoBehaviour {
+public class InputScript : MonoBehaviour
+{
     /// <summary>
     /// タッチ可能なデバイスの場合はtrue
     /// </summary>
@@ -107,11 +108,13 @@ public class InputScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (Input.touchCount != 0)
             touchUpPosition = Input.GetTouch(0).position;
 	}

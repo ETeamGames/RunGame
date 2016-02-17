@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class dynamicObjectScript : MonoBehaviour {
+public class dynamicObjectScript : MonoBehaviour
+{
     public dynamicObjectDebug debugScript;
     public PlayerScript playerScript;
     public SpriteRenderer spriteRenderer;
@@ -15,11 +16,13 @@ public class dynamicObjectScript : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	}
 	
 	// Update is called once per frameameObject
-	void Update () {
+	void Update ()
+    {
 	
 	}
     void OnTriggerEnter2D(Collider2D col)

@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GageScript : MonoBehaviour {
+public class GageScript : MonoBehaviour
+{
     [Header("プロパティ名にカーソルを合わせると説明が表示されます")]
     [Tooltip("青いゲージ")]
     public GameObject blueGage;
@@ -22,7 +23,8 @@ public class GageScript : MonoBehaviour {
     private Vector2 gageScale = new Vector2();
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         blueGage.transform.localScale = redGage.transform.localScale;
         gageScale = blueGage.transform.localScale;
         mode = 0;

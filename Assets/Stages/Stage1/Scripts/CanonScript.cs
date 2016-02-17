@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class CanonScript : Switchable {
+public class CanonScript : Switchable
+{
     /// <summary>
     /// 発射する弾のプレハブ
     /// </summary>
@@ -47,12 +48,14 @@ public class CanonScript : Switchable {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }
