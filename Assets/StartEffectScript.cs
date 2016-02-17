@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class StartEffectScript : MonoBehaviour {
+public class StartEffectScript : MonoBehaviour
+{
     /// <summary>
     /// エフェクト用
     /// </summary>
@@ -39,13 +40,15 @@ public class StartEffectScript : MonoBehaviour {
     [SerializeField]
     private float timeBuffer = 0;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         textRender.text = stageName;
         textRender.color = new Color(textRender.color.r, textRender.color.g, textRender.color.b,0);
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (timeBuffer >= 0)
         {
             timeBuffer += Time.deltaTime;

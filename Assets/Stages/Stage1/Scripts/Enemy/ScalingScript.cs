@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScalingScript : MonoBehaviour {
+public class ScalingScript : MonoBehaviour
+{
     //時間による大きさの変化を制御します
     /// <summary>
     /// 大きさの変更後、オブジェクトをどうするかを指定します
@@ -33,13 +34,16 @@ public class ScalingScript : MonoBehaviour {
 
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         deltaScale = (scale - transform.localScale) / effectTime;
         timeBuffer = 0;
 	}
 	
-	void FixedUpdate () {
-        if (timeBuffer > effectTime) {
+	void FixedUpdate ()
+    {
+        if (timeBuffer > effectTime)
+        {
             if (mode == MODE.DEATH)
                 Destroy(gameObject);
         }

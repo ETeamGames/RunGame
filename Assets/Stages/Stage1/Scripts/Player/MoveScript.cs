@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 
-public class MoveScript : MonoBehaviour {
+public class MoveScript : MonoBehaviour
+{
 	[SerializeField]
 	private Camera cam;
 	[SerializeField]
@@ -50,7 +51,8 @@ public class MoveScript : MonoBehaviour {
 	}
 	
 	// Use this for initialization
-	protected virtual void Start () {
+	protected virtual void Start ()
+    {
 		target.velocity = new Vector3(Velocity.x,target.velocity.y,0);
 		myScale = transform.localScale;
 		// additional part
@@ -77,25 +79,30 @@ public class MoveScript : MonoBehaviour {
 	}
 	
 	// stop the player's movement
-	public void StopPlayerMovement () {
+	public void StopPlayerMovement ()
+    {
 		moveOn = false;
 		Debug.Log ("call StopPlayerMovement ()");
 	}
 	
 	// resume the player's movement
-	public void ResumePlayerMovement () {
+	public void ResumePlayerMovement ()
+    {
 		moveOn = true;
 		Debug.Log ("call ResumePlayerMovement ()");
 	}
 	
 	// use this when the player get to the Goal
-	void OnTriggerEnter2D (Collider2D col) {
-		if (col.gameObject.tag == "Goal") {
+	void OnTriggerEnter2D (Collider2D col)
+    {
+		if (col.gameObject.tag == "Goal")
+        {
 			Debug.Log("Collision Goal");
 			direction = -1;
 		}
 		// use for test
-		if (col.gameObject.tag == "Test") {
+		if (col.gameObject.tag == "Test")
+        {
 			Debug.Log("Collision Test Object.");
 		}
 	}

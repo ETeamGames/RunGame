@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuHitScript : MonoBehaviour {
+public class MenuHitScript : MonoBehaviour
+{
     private Vector3 initPos;
     public Vector3 effectPosOffset;
     private bool flag;
@@ -15,12 +16,14 @@ public class MenuHitScript : MonoBehaviour {
         flag = true;
     }
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         initPos = transform.position;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (flag)
         {
             if ((freq / 4f) >= timeBuffer) {

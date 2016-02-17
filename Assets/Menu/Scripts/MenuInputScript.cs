@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MenuInputScript : MonoBehaviour {
+public class MenuInputScript : MonoBehaviour
+{
     private Ray ray;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         ray = Camera.main.ScreenPointToRay(InputScript.getPosition());
         RaycastHit hit = new RaycastHit();
         if(Physics.Raycast(ray,out hit))

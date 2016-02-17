@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class ColorFilter : MonoBehaviour {
+public class ColorFilter : MonoBehaviour
+{
     public SpriteRenderer filter;
     public Color filterColor;
 
@@ -19,7 +20,8 @@ public class ColorFilter : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 

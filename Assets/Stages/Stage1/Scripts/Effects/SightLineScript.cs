@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SightLineScript : MonoBehaviour {
+public class SightLineScript : MonoBehaviour
+{
     public enum Active
     {
         NON,
@@ -18,7 +19,8 @@ public class SightLineScript : MonoBehaviour {
     public Active active;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 
@@ -33,6 +35,7 @@ public class SightLineScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	}
 }

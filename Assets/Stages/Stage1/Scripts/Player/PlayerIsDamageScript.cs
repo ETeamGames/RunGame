@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class PlayerIsDamageScript : IsDamageScript {
+public class PlayerIsDamageScript : IsDamageScript
+{
     public override void damageProc(DamageScript scr)
     {
         if (scr == null)
@@ -25,12 +26,14 @@ public class PlayerIsDamageScript : IsDamageScript {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

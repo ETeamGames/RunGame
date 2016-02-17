@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class GameManager : MonoBehaviour {
+public class GameManager : MonoBehaviour
+{
     public enum CONTROL
     {
         NON,
@@ -30,7 +31,8 @@ public class GameManager : MonoBehaviour {
     public static GameObject checkPointPrefab;
     public static Text scoreText;
     
-    public static int Score{
+    public static int Score
+    {
         set{
             score = value;
             scoreText.text = score.ToString();
@@ -53,7 +55,8 @@ public class GameManager : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
         state = CONTROL.NON;
         playerScript.gameObject.GetComponent<MoveScript>().StopPlayerMovement();
         gui.enabled = false;
@@ -89,7 +92,8 @@ public class GameManager : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         //debug
         if (gameover)
         {

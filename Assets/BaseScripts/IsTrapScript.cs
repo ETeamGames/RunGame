@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class IsTrapScript : MonoBehaviour {
+public abstract class IsTrapScript : MonoBehaviour
+{
     /// <summary>
     /// 罠に掛かった時に再生するアニメーション用キャッシュ
     /// </summary>
@@ -22,12 +23,14 @@ public abstract class IsTrapScript : MonoBehaviour {
     public abstract void callAnimation(TrapScript trap);
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

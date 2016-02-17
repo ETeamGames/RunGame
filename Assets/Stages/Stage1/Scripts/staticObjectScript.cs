@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class staticObjectScript : MonoBehaviour {
+public class staticObjectScript : MonoBehaviour
+{
     public float deleteTime = 2.0f;
     public float groundDeleteTime = 1.0f;
 
@@ -28,11 +29,13 @@ public class staticObjectScript : MonoBehaviour {
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (activationFlag)//活性化
         {
             rig.isKinematic = false;

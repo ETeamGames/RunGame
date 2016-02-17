@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemAvilScaleScript : MonoBehaviour {
+public class ItemAvilScaleScript : MonoBehaviour
+{
     /// <summary>
     /// 変化が終わるまでの時間
     /// </summary>
@@ -41,7 +42,8 @@ public class ItemAvilScaleScript : MonoBehaviour {
     }
 	
 	// Update is called once per frame
-	void Update () { 
+	void Update ()
+    { 
         if(flag == 0)
         {
             timeBuffer += Time.deltaTime;

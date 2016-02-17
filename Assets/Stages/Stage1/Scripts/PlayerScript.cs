@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerScript : MonoBehaviour {
+public class PlayerScript : MonoBehaviour
+{
 
     [Header("プロパティ名にカーソルを合わせると、説明が表示されます")]
     [Tooltip("物体を飛ばす力")]
@@ -30,10 +31,12 @@ public class PlayerScript : MonoBehaviour {
     }
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
-	void FixedUpdate () {
+	void FixedUpdate ()
+    {
         colliderBuffer.transform.position = transform.position;
 	}
 }
