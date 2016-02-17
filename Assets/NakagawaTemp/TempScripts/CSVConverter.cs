@@ -16,7 +16,8 @@ public class CSVConverter : MonoBehaviour{
 		Init ();
 		TextAsset csv = Resources.Load(inputDataPath) as TextAsset;
 		StringReader reader = new StringReader(csv.text);
-		while (reader.Peek() > -1) {
+		while (reader.Peek() > -1) 
+		{
 			//read
 			string line = reader.ReadLine();
 			string[] values = line.Split(',');
@@ -28,14 +29,17 @@ public class CSVConverter : MonoBehaviour{
 		CreateOutputDataFile ();
 	}
 
-	void Init(){
+	void Init()
+	{
 		outputDataArray.Clear();
 		column = 0;
 	}
 
 	//convert data-type and save into ArrayList
-	void Convert(string[] str){
-		for (int i = 0; i < str.Length; i++) {
+	void Convert(string[] str)
+	{
+		for (int i = 0; i < str.Length; i++)
+		{
 			if (str [i] == "") str [i] = "0";
 			string temp = i+","+column+","+str[i];
 			outputDataArray.Add (temp);
@@ -43,9 +47,11 @@ public class CSVConverter : MonoBehaviour{
 	}
 
 	//create and output CSV file
-	void CreateOutputDataFile(){
+	void CreateOutputDataFile()
+	{
 		StreamWriter sw = new StreamWriter(outputDataPath,false); //true=追記 false=上書き
-		for (int i = 0; i < outputDataArray.Count; i++) {
+		for (int i = 0; i < outputDataArray.Count; i++) 
+		{
 			sw.WriteLine(outputDataArray[i]);
 			sw.Flush();
 		}
@@ -53,12 +59,14 @@ public class CSVConverter : MonoBehaviour{
 	}
 
 	//get outputDataArray
-	public ArrayList getAllOutPutData(){
+	public ArrayList getAllOutPutData()
+	{
 		return this.outputDataArray;
 	}
 
 	//use for debug
-	void outputArrayList(){
+	void outputArrayList()
+	{
 		for (int i = 0; i < outputDataArray.Count; i++)
 			Debug.Log (outputDataArray[i]);
 	}

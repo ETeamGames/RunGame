@@ -29,27 +29,21 @@ public class EnemyMovementScript : MonoBehaviour {
 		}
 	}
 	
-	void Awake()
-	{
-		
-	}
-	
 	// Use this for initialization
-	void Start () {
+	void Start () 
+	{
 		myScale = transform.localScale;
 	}
 	
-	void FixedUpdate() {
+	void FixedUpdate() 
+	{
 		nextVector = new Vector3 (Velocity.x * direction, target.velocity.y, 0);
-		if (moveOn) {
+		if (moveOn) 
+		{
 			// update direction of the player
 			myScale.x *= direction;
 			transform.localScale = myScale;
 			target.velocity = nextVector;
 		}
-	}
-	
-	// Update is called once per frame
-	void Update () {   
 	}
 }

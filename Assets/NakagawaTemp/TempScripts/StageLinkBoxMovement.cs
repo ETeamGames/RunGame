@@ -9,17 +9,22 @@ public class StageLinkBoxMovement : MonoBehaviour {
 
 	void Update(){
 		if (!movable) return;
-		if (count == 30 && up) {
+		if (count == 30 && up) 
+		{
 			up = false;
 			count = 0;
-		} else if (count == 30) {
+		} else if (count == 30)
+		{
 			up = true;
 			count = 0;
 		}
-		if (up) {
+
+		if (up) 
+		{
 			gameObject.transform.position += new Vector3 (0, y, 0);
 			count++;
-		} else {
+		} else 
+		{
 			gameObject.transform.position -= new Vector3 (0, y, 0);
 			count++;
 		}
