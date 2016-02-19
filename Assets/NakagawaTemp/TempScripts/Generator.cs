@@ -9,8 +9,8 @@ public class Generator : MonoBehaviour {
 	public GameObject[] generatedObjects;
 	public Vector3 initialPos = new Vector3(0,0,0);
 	public Vector3 nextPos = new Vector3(0,0,0);
-	public float unitX = 0.64f;
-	public float unitY = 0.64f;
+	public float sizeX = 0.64f;
+	public float sizeY = 0.64f;
 
 	//button用関数
 	void Process()
@@ -37,7 +37,7 @@ public class Generator : MonoBehaviour {
 	void Generate(string[] str)
 	{
 		Init();
-		nextPos = new Vector3 (unitX*float.Parse(str[0]),unitY*float.Parse(str[1]),0);
+		nextPos = new Vector3 (sizeX*float.Parse(str[0]),sizeY*float.Parse(str[1]),0);
 		if (int.Parse (str [2]) != 0 && int.Parse (str [2]) < generatedObjects.Length) 
 		{
 			GameObject obj = (GameObject)Instantiate (generatedObjects[int.Parse (str [2])], nextPos, Quaternion.identity);
