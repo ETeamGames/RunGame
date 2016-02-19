@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TrapScript : MonoBehaviour {
+public class TrapScript : MonoBehaviour
+{
 	/// <summary>
 	/// 罠の名前
 	/// </summary>
@@ -74,12 +75,14 @@ public class TrapScript : MonoBehaviour {
 	}
 	
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		
 	}
 	
 	// Update is called once per frame
-	protected virtual void Update () {
+	protected virtual void Update ()
+    {
 		if (!activation())
 		{
 			//GetComponent<Animator>().SetBool("activation", false);

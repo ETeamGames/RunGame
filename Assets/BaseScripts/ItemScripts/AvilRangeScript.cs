@@ -2,7 +2,8 @@
 using System.Collections;
 using System;
 
-public class AvilRangeScript : ItemScript{
+public class AvilRangeScript : ItemScript
+{
     [SerializeField]
     protected float changeTime;
     [SerializeField]
@@ -29,11 +30,13 @@ public class AvilRangeScript : ItemScript{
     }
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

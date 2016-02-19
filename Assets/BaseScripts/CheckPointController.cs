@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class CheckPointController : MonoBehaviour {
+public class CheckPointController : MonoBehaviour
+{
 
 
     public void init()
@@ -9,12 +10,14 @@ public class CheckPointController : MonoBehaviour {
 
     }
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

@@ -2,7 +2,8 @@
 using System;
 using System.Collections.Generic;
 
-public abstract class SwitchScript : MonoBehaviour {
+public abstract class SwitchScript : MonoBehaviour
+{
     [SerializeField]
     protected bool on;
     [SerializeField]

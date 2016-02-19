@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShootingScript : AttackableList {
+public class ShootingScript : AttackableList
+{
     public GameObject sight;
     private GameObject sight_instance;
     private SpriteRenderer s_render;
@@ -35,7 +36,8 @@ public class ShootingScript : AttackableList {
     }
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	    
 	}
 

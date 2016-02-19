@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class staticGrupeScript : MonoBehaviour {
+public class staticGrupeScript : MonoBehaviour
+{
     public float speed = 0;
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         transform.Translate(Time.deltaTime * speed, 0, 0, Space.World);
 	
 	}

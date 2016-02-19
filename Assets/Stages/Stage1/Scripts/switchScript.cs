@@ -6,28 +6,33 @@ public enum SWITCHFLAG
     OFF,
     NON
 }
-public enum COLLISIONMODE {
+public enum COLLISIONMODE
+{
     COLLISION,
     TRIGGER,
     BOTH
 }
 
-public class switchScript : MonoBehaviour {
+public class switchScript : MonoBehaviour
+{
 	public SWITCHFLAG on;
     public COLLISIONMODE triggerMode;
     public Switchable[] list;
     public string targetTagName;
     public Animator anim;
 
-	void Awake () {
+	void Awake ()
+    {
 	}
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 		on = SWITCHFLAG.OFF;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
         if (on == SWITCHFLAG.ON)
         {
             if (anim != null)

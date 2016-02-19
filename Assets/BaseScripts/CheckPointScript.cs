@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class CheckPointScript : MonoBehaviour {
+public class CheckPointScript : MonoBehaviour
+{
     public GameObject target;
     public GameObject buffer;
     public Animator anim;
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         anim = transform.GetComponent<Animator>();
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 

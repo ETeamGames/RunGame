@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public abstract class ItemScript : MonoBehaviour {
+public abstract class ItemScript : MonoBehaviour
+{
 
     /// <summary>
     /// スクリプトの追加関数
@@ -10,12 +11,14 @@ public abstract class ItemScript : MonoBehaviour {
     protected abstract void addEffect(GameObject gameObject);
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 	
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 	
 	}
 }

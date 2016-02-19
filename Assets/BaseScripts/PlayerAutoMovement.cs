@@ -2,7 +2,8 @@
 using System.Collections;
 
 /*  control player's movement */
-public class PlayerAutoMovement : MonoBehaviour {	
+public class PlayerAutoMovement : MonoBehaviour
+{	
 	/* a player's movement speed */
 	public float speed = 4f;
 	/*  the direction of the movement */
@@ -12,16 +13,19 @@ public class PlayerAutoMovement : MonoBehaviour {
 	private Rigidbody2D rigidbody2D;
 	private Animator animator;
 	
-	void Start () {
+	void Start ()
+    {
 		animator = GetComponent<Animator>();
 		rigidbody2D = GetComponent<Rigidbody2D>();
 	}
 	
-	void Update () {
+	void Update ()
+    {
 
 	}
 	
-	void FixedUpdate () {
+	void FixedUpdate ()
+    {
 		// update a player and camera position based on the horizontal speed
 		if (direction != 0) {
 			rigidbody2D.velocity = new Vector2 (direction * speed, rigidbody2D.velocity.y);
@@ -46,7 +50,8 @@ public class PlayerAutoMovement : MonoBehaviour {
 	}
 
 	/*  */
-	void OnTriggerEnter2D (Collider2D col) {
+	void OnTriggerEnter2D (Collider2D col)
+    {
 		if (col.gameObject.tag == "GOAL") {
 			Debug.Log("Collision");
 			direction = -1;
