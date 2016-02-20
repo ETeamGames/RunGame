@@ -2,46 +2,77 @@
 using System.Collections;
 using System.IO;
 using System;
+using System.Collections.Generic;
 
-public class Generator : MonoBehaviour {
-	[Button("Process", "Generate all objects")] public int button;
-	public string inputDataPath = "CSV/OutputData/stageData01";
-	public GameObject[] generatedObjects;
-	public Vector3 initialPos = new Vector3(0,0,0);
-	public Vector3 nextPos = new Vector3(0,0,0);
-	public float sizeX = 0.64f;
-	public float sizeY = 0.64f;
+public class Generator : MonoBehaviour
+{
+    [Button("Process", "Generate all objects")]
+    public int button;
+    public CSVReader csvReader;
+    public GameObject[] objects;
+    //元の床のタイルの大きさ調整用
+    private float tileSise;
+    private Data[] data;
+    private Hashtable hashTable;
 
-	//button用関数
-	void Process()
-	{
-		Debug.Log ("Process called");
-		Init ();
-		TextAsset csv = Resources.Load(inputDataPath) as TextAsset;
-		StringReader reader = new StringReader(csv.text);
-		while (reader.Peek() > -1) 
-		{
-			//read
-			string line = reader.ReadLine();
-			string[] values = line.Split(',');
-			Generate (values);
-		}
-	}
 
-	void Init()
-	{
-		initialPos = new Vector3(0,0,0);
-		nextPos = new Vector3(0,0,0);
-	}
+    //button用関数
+    void Process()
+    {
+        data = csvReader.getDataList().ToArray();
+        hashTable = new Hashtable();
+        //元となる床のオブジェクトの大きさを取得
+        tileSise = objects[3].transform.localScale.x;
 
-	void Generate(string[] str)
-	{
-		Init();
-		nextPos = new Vector3 (sizeX*float.Parse(str[0]),sizeY*float.Parse(str[1]),0);
-		if (int.Parse (str [2]) != 0 && int.Parse (str [2]) < generatedObjects.Length) 
-		{
-			GameObject obj = (GameObject)Instantiate (generatedObjects[int.Parse (str [2])], nextPos, Quaternion.identity);
-			obj.transform.parent = transform;
-		}
-	}
+        //床のテクスチャの大きさを取得
+        //以降このテクスチャサイズを元にタイルを配置
+        float x = objects[3].GetComponent<SpriteRenderer>().sprite.texture.width * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+        float y = objects[3].GetComponent<SpriteRenderer>().sprite.texture.height * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
+
+        foreach (Data d in data)
+        {
+            if (d.ID < 0)
+            {
+
+            }
+            else if (d.ID != 1)//オブジェクトIDがCheckPointでない
+            {
+                if (d.CheckPointNumber >= 0)//CheckPointNumberが0以上
+                {
+                    if (!hashTable.ContainsKey(d.CheckPointNumber))//既にチェックポイントが登録されていない
+                    {
+                        //チェックポイントオブジェクトを作成
+                        GameObject temp = (GameObject)Instantiate(objects[1], new Vector3(0, 0), objects[1].transform.rotation);
+                        temp.name = temp.name + d.CheckPointNumber;
+                        hashTable.Add(objects[d.CheckPointNumber], temp);
+                    }
+                    //オブジェクトを作成し、チェックポイントに登録
+                    GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
+                    go.transform.parent = ((GameObject)hashTable[d.CheckPointNumber]).transform;
+                }
+                else
+                {
+                    //Generatorの子オブジェクトとして登録
+                    GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
+                    go.transform.parent = transform;
+
+                }
+            }
+            else
+            {
+                if (!hashTable.ContainsKey(d.CheckPointNumber))//既にチェックポイントが存在しない
+                {
+                    GameObject go = (GameObject)Instantiate(objects[1], objects[1].transform.position, objects[1].transform.rotation);
+                    go.name = go.name + d.CheckPointNumber;
+                    hashTable.Add(d.CheckPointNumber, go);
+                }
+                //場所を更新
+                ((GameObject)hashTable[d.CheckPointNumber]).transform.position = new Vector3(d.X * x, -d.Y * y);
+            }
+        }
+        foreach (GameObject g in hashTable.Values)
+        {
+            g.transform.parent = transform;
+        }
+    }
 }
