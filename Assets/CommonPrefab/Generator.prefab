@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &184214
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 403224}
+  - 114: {fileID: 11432034}
+  - 114: {fileID: 11494404}
+  m_Layer: 0
+  m_Name: Generator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &403224
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184214}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11432034
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfd9a25b27529411c9fe62e102e64888, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 0
+  inputDataPath: CSV/InputData/stage2
+  column: 14
+  splitChar: 44
+  splitOptionChar: 2e002d00
+--- !u!114 &11494404
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 184214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84c9194adc29e4e369eb0bcb2058e15f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 0
+  csvReader: {fileID: 11432034}
+  objects:
+  - {fileID: 190382, guid: b340b1b05ac11b147a461a68d829a446, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 184214}
+  m_IsPrefabParent: 1

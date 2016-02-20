@@ -19,12 +19,12 @@ public class GameManager : MonoBehaviour
     public static bool gameover = false;
     public static float slowSpeed = 0.5f;
     public static float normalSpeed = 1.0f;
-    public IsCheckPointScript playerCheckScript;
-    public Animator playerAnimator;
-    public Camera cam;
-    public bool touchDown = false;
-    public static bool touchable = true;
+    private IsCheckPointScript playerCheckScript;
+    private Animator playerAnimator;
     public GameObject player;
+    public Camera cam;
+    private bool touchDown = false;
+    public static bool touchable = true;
     public Canvas gui;
     public static GameObject checkPointParent;
     public static GameObject nowCheckPoint;
@@ -48,6 +48,8 @@ public class GameManager : MonoBehaviour
         //画面解像度を設定
         Screen.SetResolution(1920,1080, false, 60);
         playerScript = player.GetComponent<PlayerScript>();
+        playerCheckScript = player.GetComponent<IsCheckPointScript>();
+        playerAnimator = player.GetComponent<Animator>();
         normalSpeed = Time.timeScale;
         checkPointParent = GameObject.Find("CheckPoints");
         scoreText = GameObject.Find("ScoreText").gameObject.GetComponent<Text>();
@@ -61,6 +63,7 @@ public class GameManager : MonoBehaviour
         playerScript.gameObject.GetComponent<MoveScript>().StopPlayerMovement();
         gui.enabled = false;
         gameover = false;
+        player.GetComponent<MoveScript>().cam = cam;
     }
 
     public static void onSlow()

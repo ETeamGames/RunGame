@@ -20,6 +20,11 @@ public class Generator : MonoBehaviour
     void Process()
     {
         data = csvReader.getDataList().ToArray();
+        if(data.Length <= 0)
+        {
+            Debug.Log("マップファイルが読み込まれていません");
+            return;
+        }
         hashTable = new Hashtable();
         //元となる床のオブジェクトの大きさを取得
         tileSise = objects[3].transform.localScale.x;
