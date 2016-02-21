@@ -3,9 +3,8 @@ using System.Collections;
 
 public class CheckPointScript : MonoBehaviour
 {
-    public GameObject target;
-    public GameObject buffer;
-    public Animator anim;
+    public GameObject prefab;
+    private Animator anim;
     // Use this for initialization
     void Start ()
     {
@@ -25,12 +24,12 @@ public class CheckPointScript : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name.Equals("Player"))
+        if (col.tag.Equals("Player"))
         {
             Debug.Log("チェックポイント通過!!");
             anim.SetBool("active" , true);
             GameManager.nowCheckPoint = gameObject;
-            GameManager.checkPointPrefab = target;
+            GameManager.checkPointPrefab = prefab;
             GameManager.checkPoint();
         }
     }

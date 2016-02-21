@@ -9,7 +9,7 @@ public class PlayerColliderScript : MonoBehaviour
 
     void Awake()
     {
-        normalScale = player.transform.lossyScale;
+        //normalScale = player.transform.lossyScale;
     }
 	// Use this for initialization
 	void Start ()

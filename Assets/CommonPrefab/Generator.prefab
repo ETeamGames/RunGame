@@ -42,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: 0
   inputDataPath: CSV/InputData/stage2
-  column: 14
+  column: 10
   splitChar: 44
   splitOptionChar: 2e002d00
 --- !u!114 &11494404
@@ -60,14 +60,15 @@ MonoBehaviour:
   csvReader: {fileID: 11432034}
   objects:
   - {fileID: 190382, guid: b340b1b05ac11b147a461a68d829a446, type: 2}
+  - {fileID: 119970, guid: 66f661051affd064a9c77c452e19bfb4, type: 2}
+  - {fileID: 115170, guid: efaefecae3e8ba74b933d30b340d9f97, type: 2}
+  - {fileID: 173178, guid: 8c534469e71e51a43a6969f1fca0817e, type: 2}
   - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
-  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 152702, guid: 59e2916dc5a9da74aaa8a34e176197b8, type: 2}
+  - {fileID: 137970, guid: 7f73bed88894e004cbe87f09da60463e, type: 2}
+  - {fileID: 141914, guid: 34eeea250cdd6f54a909533960edbb3a, type: 2}
+  - {fileID: 173956, guid: cd80940a706f00e44bd9fabadf4c84db, type: 2}
+  - {fileID: 167940, guid: 0afaf08affc25a24f880f74a34e4f388, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

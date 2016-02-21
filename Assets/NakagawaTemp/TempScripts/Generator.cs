@@ -34,8 +34,11 @@ public class Generator : MonoBehaviour
         float x = objects[3].GetComponent<SpriteRenderer>().sprite.texture.width * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
         float y = objects[3].GetComponent<SpriteRenderer>().sprite.texture.height * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
+        int n = -1;
         foreach (Data d in data)
         {
+            n++;
+            //Debug.Log("num:" + n + " objectId:" + d.ID + " checkID:" + d.CheckPointNumber + " x:" + d.X + " y:" + d.Y);
             if (d.ID < 0)
             {
 
@@ -44,23 +47,28 @@ public class Generator : MonoBehaviour
             {
                 if (d.CheckPointNumber >= 0)//CheckPointNumberが0以上
                 {
-                    if (!hashTable.ContainsKey(d.CheckPointNumber))//既にチェックポイントが登録されていない
+                    Debug.Log("num:" + n + " objectId:" + d.ID + " checkID:" + d.CheckPointNumber + " x:" + d.X + " y:" + d.Y);
+                    if (hashTable.Contains(d.CheckPointNumber))//チェックポイントが登録されている
+                    {
+                        //オブジェクトを作成し、チェックポイントに登録
+                        GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
+                        go.transform.parent = ((GameObject)hashTable[d.CheckPointNumber]).transform;
+                    }
+                    else
                     {
                         //チェックポイントオブジェクトを作成
                         GameObject temp = (GameObject)Instantiate(objects[1], new Vector3(0, 0), objects[1].transform.rotation);
-                        temp.name = temp.name + d.CheckPointNumber;
-                        hashTable.Add(objects[d.CheckPointNumber], temp);
+                        temp.name = objects[1].name + d.CheckPointNumber;
+                        GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
+                        go.transform.parent = temp.transform;
+                        hashTable.Add(d.CheckPointNumber, temp);
                     }
-                    //オブジェクトを作成し、チェックポイントに登録
-                    GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
-                    go.transform.parent = ((GameObject)hashTable[d.CheckPointNumber]).transform;
                 }
                 else
                 {
                     //Generatorの子オブジェクトとして登録
                     GameObject go = (GameObject)Instantiate(objects[d.ID], new Vector3(d.X * x, -d.Y * y), objects[d.ID].transform.rotation);
                     go.transform.parent = transform;
-
                 }
             }
             else

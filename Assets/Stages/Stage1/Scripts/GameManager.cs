@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     private bool touchDown = false;
     public static bool touchable = true;
     public Canvas gui;
+    public GameObject initCheckPoint;
     public static GameObject checkPointParent;
     public static GameObject nowCheckPoint;
     public static GameObject checkPointPrefab;
@@ -51,7 +52,7 @@ public class GameManager : MonoBehaviour
         playerCheckScript = player.GetComponent<IsCheckPointScript>();
         playerAnimator = player.GetComponent<Animator>();
         normalSpeed = Time.timeScale;
-        checkPointParent = GameObject.Find("CheckPoints");
+        checkPointPrefab = initCheckPoint;
         scoreText = GameObject.Find("ScoreText").gameObject.GetComponent<Text>();
         score = 0;
     }
