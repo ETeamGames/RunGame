@@ -59,16 +59,18 @@ public class SightScript : MonoBehaviour
     [SerializeField, Tooltip("ゲージスクリプト")]
     private GageScript gageScript;
 
-    [SerializeField, Tooltip("プレイヤートラップスクリプト")]
+    private GameObject player;
+
+    
     private PlayerIsTrapScript piTrapScript;
 
-    [SerializeField, Tooltip("プレイヤーアニメーション")]
+    
     private Animator playerAnim;
 
-    [SerializeField, Tooltip("プレイヤースクリプト")]
+    
     private PlayerScript playerScript;
 
-    [SerializeField, Tooltip("プレイヤーmoveScript")]
+    
     private MoveScript moveScript;
 
     [SerializeField, Tooltip("フィルター")]
@@ -80,6 +82,16 @@ public class SightScript : MonoBehaviour
 
     void Awake()
     {
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        player = GameManager.playerScript.gameObject;
+        piTrapScript = player.GetComponent<PlayerIsTrapScript>();
+        playerAnim = player.GetComponent<Animator>();
+        playerScript = player.GetComponent<PlayerScript>();
+        moveScript = player.GetComponent<MoveScript>();
         deltaScale = sightScaleInit - sightScale;
         deltaScale = deltaScale / scaleTime;
         transform.localScale = sightScaleInit;
@@ -90,15 +102,10 @@ public class SightScript : MonoBehaviour
         effects = new SightLineScript[7];
         for (int n = 0; n < effects.Length; n++)
         {
-            effects[n] = ((GameObject)Instantiate(effect,Vector3.zero,playerScript.transform.rotation)).GetComponent<SightLineScript>();
+            effects[n] = ((GameObject)Instantiate(effect, Vector3.zero, playerScript.transform.rotation)).GetComponent<SightLineScript>();
             effects[n].render.enabled = false;
         }
     }
-
-    // Use this for initialization
-    void Start ()
-    {
-	}
 	
 	// Update is called once per frame
 	void Update ()

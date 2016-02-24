@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 public class MoveScript : MonoBehaviour
 {
-	[SerializeField]
-	private Camera cam;
+	public Camera cam;
 	[SerializeField]
 	private Rigidbody2D target;
 	[SerializeField]

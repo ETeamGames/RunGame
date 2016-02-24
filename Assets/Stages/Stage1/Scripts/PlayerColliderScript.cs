@@ -9,8 +9,7 @@ public class PlayerColliderScript : MonoBehaviour
 
     void Awake()
     {
-        player = GameObject.Find("Player");
-        normalScale = player.transform.lossyScale;
+        //normalScale = player.transform.lossyScale;
     }
 	// Use this for initialization
 	void Start ()

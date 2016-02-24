@@ -11,6 +11,7 @@ TagManager:
   - Ground
   - EnemyBullet
   - PlayerCollider
+  - Switch
   layers:
   - Default
   - TransparentFX
@@ -30,7 +31,7 @@ TagManager:
   - Enemy
   - Transparent
   - WallAndFloor
-  - 
+  - Switch
   - 
   - 
   - 
