@@ -11,10 +11,14 @@ public class IsCheckPointScript : MonoBehaviour
         pidScript.init();
         gameObject.GetComponent<PlayerScript>().init();
         pidScript.transform.position = GameManager.nowCheckPoint.transform.position;
-        Destroy(GameManager.nowCheckPoint.GetComponent<CheckPointScript>().buffer.gameObject);
+        Destroy(GameManager.nowCheckPoint);
         GameObject temp = Instantiate(GameManager.checkPointPrefab);
-        temp.transform.parent = GameManager.checkPointParent.transform;
-        GameManager.nowCheckPoint.GetComponent<CheckPointScript>().buffer = temp;
+        if (GameObject.Find("Generator"))
+            Debug.Log("Generator found");
+        else
+            Debug.Log("Generator not round");
+        temp.transform.parent = GameObject.Find("Generator").transform;
+        GameManager.nowCheckPoint = temp;
         
     }
 
