@@ -156,9 +156,34 @@ Prefab:
       propertyPath: generatedObjects.Array.data[1]
       value: 
       objectReference: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11449428, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+    - {fileID: 11480660, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1059024674 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 165782, guid: b7703aa57390548af820eff1a78ecb80, type: 2}
+  m_PrefabInternal: {fileID: 1059024673}
+--- !u!114 &1059024675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1059024674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7802499b896de4721a802f3fa7b91976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: 0
+  objects:
+  - {fileID: 132270, guid: a8ebd8713152c6745bfb7ef31ddb3716, type: 2}
+  - {fileID: 113142, guid: 57ad4edc7a415764a86e9087fda25b8a, type: 2}
+  - {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
+  - {fileID: 173178, guid: 8c534469e71e51a43a6969f1fca0817e, type: 2}
+  - {fileID: 138072, guid: da3bbc7326ad9414a9cd68c6caef01c6, type: 2}
+  inputDataPath: CSV/InputData/TestStage
 --- !u!1 &1674345275
 GameObject:
   m_ObjectHideFlags: 0
@@ -199,10 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: 0
-  inputDataPath: CSV/InputData/stageData01
+  inputDataPath: 4353562f496e707574446174612f7374616765446174613031
   column: 8
-  splitChar: 44
-  splitOptionChar: 2e002d00
+  splitOptionChar: []
 --- !u!1 &2018691326
 GameObject:
   m_ObjectHideFlags: 0
