@@ -13,7 +13,7 @@ public class MenuInputScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        ray = Camera.main.ScreenPointToRay(InputScript.getPosition());
+        ray = Camera.main.ScreenPointToRay(InputManager.input.getPosition());
         RaycastHit hit = new RaycastHit();
         if(Physics.Raycast(ray,out hit))
         {

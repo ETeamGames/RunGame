@@ -230,7 +230,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 152702}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.85281086, y: -23.0393105, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 419450}
@@ -784,9 +784,9 @@ CircleCollider2D:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .00999999978, y: .769999981}
+  m_Offset: {x: -.0900000036, y: .959999979}
   serializedVersion: 2
-  m_Radius: .75
+  m_Radius: .529999971
 --- !u!58 &5897250
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -859,7 +859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2283b5b8ecca3e041821758558d70c27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cam: {fileID: 0}
   target: {fileID: 5052950}
   velocity: {x: -1, y: 0, z: 0}
   cameraOffset: {x: 0, y: 0, z: 0}

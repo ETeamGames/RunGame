@@ -34,11 +34,20 @@ public class AutoGenerator : MonoBehaviour {
 		float x = objects[3].GetComponent<SpriteRenderer>().sprite.texture.width * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 		float y = objects[3].GetComponent<SpriteRenderer>().sprite.texture.height * tileSise / objects[3].GetComponent<SpriteRenderer>().sprite.pixelsPerUnit;
 
-		int n = -1;
+        //先にチェックポイントを登録
+        foreach (Data d in data)
+        {
+            if(d.ID == 1)
+            {
+                GameObject go = (GameObject)Instantiate(objects[1], new Vector3(d.X*x,-d.Y*y), objects[1].transform.rotation);
+                go.name = go.name + d.CheckPointNumber;
+                hashTable.Add(d.CheckPointNumber, go);
+            }
+        }
+
+
 		foreach (Data d in data)
 		{
-			n++;
-			//Debug.Log("num:" + n + " objectId:" + d.ID + " checkID:" + d.CheckPointNumber + " x:" + d.X + " y:" + d.Y);
 			if (d.ID < 0)
 			{
 
@@ -47,7 +56,7 @@ public class AutoGenerator : MonoBehaviour {
 			{
 				if (d.CheckPointNumber >= 0)//CheckPointNumberが0以上
 				{
-					Debug.Log("num:" + n + " objectId:" + d.ID + " checkID:" + d.CheckPointNumber + " x:" + d.X + " y:" + d.Y);
+					//Debug.Log("num:" + n + " objectId:" + d.ID + " checkID:" + d.CheckPointNumber + " x:" + d.X + " y:" + d.Y);
 					if (hashTable.Contains(d.CheckPointNumber))//チェックポイントが登録されている
 					{
 						//オブジェクトを作成し、チェックポイントに登録
@@ -73,14 +82,12 @@ public class AutoGenerator : MonoBehaviour {
 			}
 			else
 			{
-				if (!hashTable.ContainsKey(d.CheckPointNumber))//既にチェックポイントが存在しない
+				if (!hashTable.ContainsKey(d.CheckPointNumber))//チェックポイントが存在しない
 				{
-					GameObject go = (GameObject)Instantiate(objects[1], objects[1].transform.position, objects[1].transform.rotation);
+					GameObject go = (GameObject)Instantiate(objects[1], Vector3.zero, objects[1].transform.rotation);
 					go.name = go.name + d.CheckPointNumber;
 					hashTable.Add(d.CheckPointNumber, go);
 				}
-				//場所を更新
-				((GameObject)hashTable[d.CheckPointNumber]).transform.position = new Vector3(d.X * x, -d.Y * y);
 			}
 		}
 		foreach (GameObject g in hashTable.Values)

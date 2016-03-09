@@ -42,6 +42,8 @@ public class StartEffectScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
+        //入力を受け付けない
+        InputManager.guiFlag = true;
         textRender.text = stageName;
         textRender.color = new Color(textRender.color.r, textRender.color.g, textRender.color.b,0);
 	}
@@ -59,6 +61,7 @@ public class StartEffectScript : MonoBehaviour
                 GameManager.playerScript.gameObject.GetComponent<MoveScript>().ResumePlayerMovement();
                 colorFilter.enabled = false;
                 GameManager.startTime = Time.time;
+                InputManager.guiFlag = false;
             }
             else if (timeBuffer > freezeTime)
             {
@@ -70,6 +73,8 @@ public class StartEffectScript : MonoBehaviour
             {
                 textRender.enabled = false;
                 timeBuffer = -1;
+                InputManager.guiFlag = false;
+                GameManager.playerScript.gameObject.GetComponent<MoveScript>().enabled = true;
             }
             //ステージ名のフェードアウト
             else if (timeBuffer >= (dispOffset + freezeTime))

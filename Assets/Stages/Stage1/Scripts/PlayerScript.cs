@@ -8,6 +8,9 @@ public class PlayerScript : MonoBehaviour
     [Tooltip("物体を飛ばす力")]
     public float power;
 
+    public SpriteRenderer sight;
+    public Vector3 cameraOffset;
+
     public GameObject colliderBuffer;
     public GameObject colliderPrefab;
 
@@ -17,6 +20,8 @@ public class PlayerScript : MonoBehaviour
     public AttackableList end;
     public AttackableList first;
     public Vector3 pos;
+    private MoveScript moveScript;
+
     //攻撃可能物体を座標に飛ばす
     public void attack(Vector3 vec)
     {
@@ -33,10 +38,31 @@ public class PlayerScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-	
+        moveScript = GetComponent<MoveScript>();
 	}
 	void FixedUpdate ()
     {
         colliderBuffer.transform.position = transform.position;
 	}
+    void Update()
+    {
+        if (InputManager.input.isInputDown())//入力あり
+        {
+            GageScript.mode = GageScript.GAGE_STATE.ATTENUATION;
+            GetComponent<Animator>().SetBool("jump", true);
+            moveScript.enabled = false;
+        }
+        else if (InputManager.input.isInputUp())//入力解除
+        {
+            GageScript.mode = GageScript.GAGE_STATE.INCREMENT;
+            GetComponent<Animator>().SetBool("jump", false);
+            moveScript.enabled = true;
+            attack(GameManager.mainCamera.ScreenToWorldPoint(InputManager.input.getUpPosition()));
+        }
+        else
+        {
+            GetComponent<Animator>().SetBool("jump", false);
+        }
+        GameManager.mainCamera.transform.position = (new Vector3(transform.position.x, transform.position.y, -10))+cameraOffset;
+    }
 }

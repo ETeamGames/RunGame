@@ -30,7 +30,7 @@ public class GameOverEffectScript : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        if (GameManager.gameover && timeBuffer >= 0)
+        if (GameManager.getGameOverFlag() && timeBuffer >= 0)
         {
             //アニメーションの停止、あるいは死亡アニメーション再生
             transform.parent.GetComponent<Animator>().enabled = false;
