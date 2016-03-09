@@ -90,13 +90,14 @@ public class GameManager : MonoBehaviour
 
     public void continueGame()
     {
-        state = CONTROL.GAME;
+        Application.LoadLevel(Application.loadedLevelName);
+        /*state = CONTROL.GAME;
         gui.enabled = false;
         if (GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>() != null)
             GameObject.Find("GameOverEffect").GetComponent<GameOverEffectScript>().stop();
         InputManager.input.init();
         playerCheckScript.continueCheckPoint();
-        score = score_buffer;
+        score = score_buffer;*/
     }
 
     public void returnStageSelect()

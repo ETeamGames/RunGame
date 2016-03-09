@@ -58,6 +58,7 @@ public class PlayerScript : MonoBehaviour
             GetComponent<Animator>().SetBool("jump", false);
             moveScript.enabled = true;
             attack(GameManager.mainCamera.ScreenToWorldPoint(InputManager.input.getUpPosition()));
+            InputManager.input.init();
         }
         else
         {
