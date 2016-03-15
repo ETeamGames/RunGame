@@ -1,24 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMoveScript : MoveScript
-{
+public class fieldOfVision : MoveScript {
 	//メインカメラのタグ名　constは定数(絶対に変わらない値)
 	private const string MAIN_CAMERA_TAG_NAME = "MainCamera";
 	//カメラに映っているかの判定
 	private bool _isRendered = false;
-    public Animator anim;
 
-	// Use this for initialization
-	protected override void Start ()
-    {
-        base.Start();
-        anim.SetTrigger("walkTrigger");
+	void Start () {
 	}
-	
-	// Update is called once per frame
+
 	void Update ()
-    {
+	{
 		if (_isRendered) {
 			//Debug.Log ("rendered!");
 			base.ResumePlayerMovement();
@@ -40,4 +33,5 @@ public class EnemyMoveScript : MoveScript
 			_isRendered = true;
 		}
 	}
+
 }
