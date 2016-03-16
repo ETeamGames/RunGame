@@ -114,7 +114,7 @@ GameObject:
   - 114: {fileID: 11451254}
   - 114: {fileID: 11447766}
   m_Layer: 0
-  m_Name: ResultCanvas
+  m_Name: GoalCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -837,7 +837,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294706376
+    m_Bits: 4294444232
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1080,8 +1080,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: End
+      - m_Target: {fileID: 11461704}
+        m_MethodName: returnStageSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1153,12 +1153,12 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: 
+      - m_Target: {fileID: 11461704}
+        m_MethodName: returnStageSelect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1524,8 +1524,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Retry
+      - m_Target: {fileID: 11461704}
+        m_MethodName: continueGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1572,6 +1572,7 @@ MonoBehaviour:
   filter: {fileID: 11431774}
   cam: {fileID: 2092114}
   gui: {fileID: 22322616}
+  goal: {fileID: 22368132}
   slow: .5
 --- !u!114 &11463078
 MonoBehaviour:

@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 
 public class TouchInputScript : InputScript{
+    private Vector3 positionBuffer;
     public TouchInputScript()
     {
         init();
@@ -50,18 +51,21 @@ public class TouchInputScript : InputScript{
         if(Input.touchCount >0 & !isInputDownFlag & !isInputUpFlag)//初めてタッチされた場合
         {
             downPosition = Input.GetTouch(0).position;
+            isInputDownFlag = true;
         }
         else if (isInputDownFlag & Input.touchCount == 0)//前に入力があり、かつ現在入力がない場合はタッチが解除されたと判定
         {
             isInputUpFlag = true;
-            upPosition = Input.GetTouch(0).position;
+            isInputDownFlag = false;
+            upPosition = positionBuffer;
         }
         else if (isInputUpFlag & Input.touchCount > 0)//タッチ解除された後で、再びタッチされるとタッチ解除フラグをfalseする
         { 
             isInputUpFlag = false;
+            isInputDownFlag = true;
             downPosition = Input.GetTouch(0).position;
-
         }
-        isInputDownFlag = Input.touchCount > 0;
+        if (Input.touchCount > 0)
+            positionBuffer = Input.GetTouch(0).position;
 	}
 }

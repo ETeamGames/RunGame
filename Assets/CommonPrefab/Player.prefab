@@ -755,7 +755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 5028302}
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 5, y: 0, z: 0}
   cameraOffset: {x: 5.82999992, y: 2.23000002, z: 0}
   camMoveDelay: 30
   direction: 1
@@ -1422,6 +1422,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: velocity.x
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

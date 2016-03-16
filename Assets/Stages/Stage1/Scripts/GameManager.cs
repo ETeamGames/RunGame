@@ -21,11 +21,13 @@ public class GameManager : MonoBehaviour
     public static Camera mainCamera;
     public static ColorFilter colorFilter;
     public static PlayerScript playerScript;
+    public static Canvas goalCanvas;
     private IsCheckPointScript playerCheckScript;
     private Animator playerAnimator;
     public ColorFilter filter;
     public Camera cam;
     public Canvas gui;
+    public Canvas goal;
     public float slow;
     public static Text scoreText;
     
@@ -55,6 +57,7 @@ public class GameManager : MonoBehaviour
         gameover = false;
         mainCamera = cam;
         slowSpeed = slow;
+        goalCanvas = goal;
     }
 
 	// Use this for initialization

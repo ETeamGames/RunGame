@@ -21,6 +21,7 @@ public class PlayerScript : MonoBehaviour
     public AttackableList first;
     public Vector3 pos;
     private MoveScript moveScript;
+    private bool attackFlag = false;
 
     //攻撃可能物体を座標に飛ばす
     public void attack(Vector3 vec)
@@ -51,14 +52,15 @@ public class PlayerScript : MonoBehaviour
             GageScript.mode = GageScript.GAGE_STATE.ATTENUATION;
             GetComponent<Animator>().SetBool("jump", true);
             moveScript.enabled = false;
+            attackFlag = true;
         }
-        else if (InputManager.input.isInputUp())//入力解除
+        else if ((InputManager.input.isInputUp() | InputManager.emptyGageFlag) & attackFlag)//入力解除
         {
             GageScript.mode = GageScript.GAGE_STATE.INCREMENT;
             GetComponent<Animator>().SetBool("jump", false);
             moveScript.enabled = true;
             attack(GameManager.mainCamera.ScreenToWorldPoint(InputManager.input.getUpPosition()));
-            InputManager.input.init();
+            attackFlag = false;
         }
         else
         {

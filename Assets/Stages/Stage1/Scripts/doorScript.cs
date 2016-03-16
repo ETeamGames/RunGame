@@ -5,7 +5,6 @@ using System;
 public class doorScript : Switchable
 {
     public Animator anim;
-    public BoxCollider2D col;
 
 	// Use this for initialization
 	void Start ()
@@ -20,6 +19,5 @@ public class doorScript : Switchable
     public override void onSwitch()
     {
         anim.enabled = true;
-        col.enabled = false;
     }
 }

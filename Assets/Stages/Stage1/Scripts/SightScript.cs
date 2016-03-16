@@ -129,7 +129,7 @@ public class SightScript : MonoBehaviour
             }
         }
         else if (InputManager.input.isInputUp() | InputManager.emptyGageFlag | InputManager.guiFlag)
-        {
+        {//タッチ解除 or エネルギー空　or GUI表示中
             if (GetComponent<SpriteRenderer>().color.a > 0)
             {
                 scaling();
@@ -148,78 +148,6 @@ public class SightScript : MonoBehaviour
             }
             flag = false;
         }
-
-        /*if (InputManager.input.isInputDown() & !piTrapScript.isTrap)
-        {
-            transform.rotation = initRot;
-            GetComponent<SpriteRenderer>().initcolor = ;Col
-            GetComponent<SpriteRenderer>().enabled = true;
-            moveScript.enabled = false;
-            GameManager.onSlow();
-            GameManager.colorFilter.onFilter();
-            Debug.Log("タッチダウン!!");          
-            if (sightFlag)
-            {
-                scaleTimeBuffer = 0;
-                sightFlag = false;
-            }
-        }
-        else if (InputManager.input.isInputUp() | piTrapScript.isTrap)
-        {
-            sightFlag = true;
-            GameManager.offSlow();
-            GameManager.colorFilter.offFilter();
-            moveScript.enabled = true;
-            Debug.Log("LineEffect Enabled");
-            for (int n = 0; n < effects.Length; n++)
-            {
-                effects[n].render.enabled = false;
-            }
-        }
-        if (sightFlag)
-        {
-            if (GetComponent<SpriteRenderer>().color.a >= 0)
-            {
-                col = GetComponent<SpriteRenderer>().color;
-                col.a -= alphaAttenuation * Time.deltaTime;
-                GetComponent<SpriteRenderer>().color = col;
-
-                //テスト　回転を加え絵的にかっこよく
-                scaling();
-                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
-            }
-            else
-            {
-                GetComponent<SpriteRenderer>().enabled = false;
-                sightFlag = false;
-            }
-        }
-        else
-        {
-            if (GetComponent<SpriteRenderer>().enabled)
-            {
-                scaling();
-                sightPos = GameManager.mainCamera.ScreenToWorldPoint(InputManager.input.getPosition());
-                sightPos.z = 0;
-                transform.position = sightPos;
-                //テスト　回転を加え絵的にかっこよく
-                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
-            }
-            if (InputManager.input.isInputDown())
-            {
-                int m = (int)(Vector3.Distance(playerScript.transform.position, transform.position) / 2f);
-                for (int n = 0; n < effects.Length; n++)
-                {
-                    if (n < m)
-                    {
-                        effects[n].render.enabled = true;
-                        effects[n].Proc(transform, transform.position, playerScript.transform.position, n, m);
-                    }
-                    else
-                        effects[n].render.enabled = false;
-                }
-            }
-        }*/
     }
 
     void scaling()
