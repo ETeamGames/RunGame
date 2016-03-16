@@ -74,14 +74,14 @@ public class MoveScript : MonoBehaviour
 	public void StopPlayerMovement ()
     {
 		moveOn = false;
-		Debug.Log ("call StopPlayerMovement ()");
+		//Debug.Log ("call StopPlayerMovement ()");
 	}
 	
 	// resume the player's movement
 	public void ResumePlayerMovement ()
     {
 		moveOn = true;
-		Debug.Log ("call ResumePlayerMovement ()");
+		//Debug.Log ("call ResumePlayerMovement ()");
 	}
 	
 	// use this when the player get to the Goal

@@ -46,4 +46,18 @@ public class EnemyMovementScript : MonoBehaviour {
 			target.velocity = nextVector;
 		}
 	}
+
+	// stop the player's movement
+	public void StopEnemyMovement ()
+	{
+		moveOn = false;
+		Debug.Log ("call StopEnemyMovement ()");
+	}
+
+	// resume the player's movement
+	public void ResumeEnemyMovement ()
+	{
+		moveOn = true;
+		Debug.Log ("call ResumeEnemyMovement ()");
+	}
 }

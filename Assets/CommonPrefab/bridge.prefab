@@ -44,7 +44,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 406894}
   m_Layer: 0
-  m_Name: Bridge
+  m_Name: bridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
