@@ -19,11 +19,12 @@ public class ColorFilter : MonoBehaviour
         filter.color = filterColor;
     }
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
-	
-	}
+
+
+    }
 
     // Update is called once per frame
     void Update()

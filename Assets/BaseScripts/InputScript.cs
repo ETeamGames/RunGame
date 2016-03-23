@@ -4,118 +4,81 @@ using UnityEngine.EventSystems;
 public class InputScript : MonoBehaviour
 {
     /// <summary>
-    /// タッチ可能なデバイスの場合はtrue
+    /// 入力されたか
     /// </summary>
-    private static bool touchable = false;
-    private static bool isTouch = false;
-    private static Vector2 touchUpPosition = Vector2.zero;
+    public bool isInputDownFlag
+    {
+        protected set;
+        get;
+    }
+    /// <summary>
+    /// 入力が解除されたか
+    /// </summary>
+    public bool isInputUpFlag
+    {
+        protected set;
+        get;
+    }
+    /// <summary>
+    /// 入力された位置
+    /// </summary>
+    protected Vector3 downPosition = Vector3.zero;
+    /// <summary>
+    /// 入力が解除された位置
+    /// </summary>
+    protected Vector3 upPosition = Vector3.zero;
     /// <summary>
     /// 入力があるかどうかを返します
     /// </summary>
     /// <returns>true＝あり　false=無し</returns>
-    public static bool isInputDown()
+    public virtual bool isInputDown()
     {
-        if ((Input.GetMouseButtonDown(0) | (Input.touchCount != 0 & touchable)) & !isTouch)
-        {
-            isTouch = true;
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return false;
     }
     /// <summary>
     /// 入力が解除されたかを返します
     /// </summary>
     /// <returns>true=解除 false=未解除</returns>
-    public static bool isInputUp()
+    public virtual bool isInputUp()
     {
-        if((Input.GetMouseButtonUp(0) | (Input.touchCount == 0 & touchable)) & isTouch)
-        {
-            isTouch = false;
-            if (Input.GetMouseButtonUp(0))
-            {
-                touchUpPosition = Input.mousePosition;
-            }
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-
+        return false;
     }
     /// <summary>
     /// 入力された場所を取得します
     /// </summary>
-    /// <returns>入力された場所（スクリーン座標）</returns>
-    public static Vector3 getInputDown()
+    /// <returns>入力されたスクリーン座標を取得する</returns>
+    public virtual Vector3 getDownPosition()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            return Input.mousePosition;
-        }
-        else if(isInputDown())
-        {
-            return Input.GetTouch(0).position;
-        }
         return Vector3.zero;
     }
     /// <summary>
     /// マウスポインタ、あるいはタッチされている場所を返します
     /// </summary>
     /// <returns>マウスポインタあるいはタッチされた座標</returns>
-    public static Vector3 getPosition()
+    public virtual Vector3 getPosition()
     {
-        if (Input.touchCount != 0)
-            return Input.GetTouch(0).position;
-        else if (!Input.GetMouseButton(0))
-            return Input.mousePosition;
-        else
-            return Input.mousePosition;
+        return Input.mousePosition;
     }
-
     /// <summary>
-    /// 入力が解除された場所を取得する
+    /// 入力が解除されたスクリーン座標を取得する
     /// </summary>
     /// <returns></returns>
-    public static Vector3 getInputUp()
+    public virtual Vector3 getUpPosition()
     {
-        return touchUpPosition;
+        return Vector3.zero;
     }
     /// <summary>
-    /// 入力状態のバッファをすべて初期化します。
+    /// 初期状態に戻します。
     /// </summary>
-    public static void refresh()
+    public virtual void init()
     {
-        isTouch = false;
-    }
-    /// <summary>
-    /// タッチされているかを返します
-    /// </summary>
-    /// <returns>タッチされているか,true or false</returns>
-    public static bool getIsTouch()
-    {
-        return isTouch;
-    }
-    void Awake()
-    {
-        if (Application.platform == RuntimePlatform.Android | Application.platform == RuntimePlatform.IPhonePlayer)
-        {
-            touchable = true;
-        }
-    }
 
-    // Use this for initialization
-    void Start ()
+    }
+    /// <summary>
+    /// 処理実行
+    /// </summary>
+    public virtual void process()
     {
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-        if (Input.touchCount != 0)
-            touchUpPosition = Input.GetTouch(0).position;
-	}
+
+    }
 }

@@ -7,19 +7,13 @@ public class IsCheckPointScript : MonoBehaviour
 
     public void continueCheckPoint()
     {
-        GameManager.gameover = false;
+        GameManager.gameOver();
         pidScript.init();
         gameObject.GetComponent<PlayerScript>().init();
-        pidScript.transform.position = GameManager.nowCheckPoint.transform.position;
-        Destroy(GameManager.nowCheckPoint);
-        GameObject temp = Instantiate(GameManager.checkPointPrefab);
         if (GameObject.Find("Generator"))
             Debug.Log("Generator found");
         else
-            Debug.Log("Generator not round");
-        temp.transform.parent = GameObject.Find("Generator").transform;
-        GameManager.nowCheckPoint = temp;
-        
+            Debug.Log("Generator not found");
     }
 
 	// Use this for initialization

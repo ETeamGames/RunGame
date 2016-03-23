@@ -32,9 +32,6 @@ public class SightScript : MonoBehaviour
         [SerializeField, Tooltip("単位時間当たりの減衰透明度量")]
     private float alphaAttenuation;
 
-        [SerializeField, Tooltip("タッチ位置をゲーム内位置に変換するためのカメラ")]
-    private Camera cam;
-
         [SerializeField, Tooltip("照準の位置")]
     private Vector3 sightPos;
 
@@ -56,9 +53,7 @@ public class SightScript : MonoBehaviour
     [SerializeField, Tooltip("差分スケール")]
     private float scaleTimeBuffer;
 
-    [SerializeField, Tooltip("ゲージスクリプト")]
-    private GageScript gageScript;
-
+    [SerializeField, Tooltip("プレイヤー")]
     private GameObject player;
 
     
@@ -73,12 +68,10 @@ public class SightScript : MonoBehaviour
     
     private MoveScript moveScript;
 
-    [SerializeField, Tooltip("フィルター")]
-    private ColorFilter colorFilter;
-
     [SerializeField]
     private SightLineScript[] effects;
 
+    private bool flag = false;
 
     void Awake()
     {
@@ -102,95 +95,58 @@ public class SightScript : MonoBehaviour
         effects = new SightLineScript[7];
         for (int n = 0; n < effects.Length; n++)
         {
-            effects[n] = ((GameObject)Instantiate(effect, Vector3.zero, playerScript.transform.rotation)).GetComponent<SightLineScript>();
-            effects[n].render.enabled = false;
+           effects[n] = ((GameObject)Instantiate(effect, Vector3.zero, playerScript.transform.rotation)).GetComponent<SightLineScript>();
+           effects[n].render.enabled = false;
         }
     }
-	
+
+    
+
 	// Update is called once per frame
 	void Update ()
     {
-        if (GameManager.state != GameManager.CONTROL.GAME)//ゲーム時以外は入力を受け付けない
-            return;
-        if (InputScript.isInputDown() & !piTrapScript.isTrap & !gageScript.empty)
+        if(InputManager.input.isInputDown() & !piTrapScript.isTrap)
         {
-            scaleTimeBuffer = 0;
-            playerAnim.SetBool("jump", true);
-            transform.rotation = initRot;
-            GetComponent<SpriteRenderer>().color = initCol;
-            GetComponent<SpriteRenderer>().enabled = true;
-            gageScript.mode = -1;
-            moveScript.enabled = false;
-            GameManager.onSlow();
-            colorFilter.onFilter();
-            Debug.Log("タッチダウン!!");          
-            if (sightFlag)
+            if (!flag)
             {
-                sightFlag = false;
-            }
-        }
-        else if (InputScript.isInputUp() | gageScript.empty | piTrapScript.isTrap)
-        {
-            InputScript.refresh();
-            gageScript.mode = 1;
-            if (!piTrapScript.isTrap & playerAnim.GetBool("jump"))
-            {
-                playerScript.attack(cam.ScreenToWorldPoint(InputScript.getInputUp()));
-            }
-            playerAnim.SetBool("jump", false);
-            sightFlag = true;
-            GameManager.offSlow();
-            colorFilter.offFilter();
-            moveScript.enabled = true;
-            Debug.Log("LineEffect Enabled");
-            for (int n = 0; n < effects.Length; n++)
-            {
-                effects[n].render.enabled = false;
-            }
-        }
-        if (sightFlag)
-        {
-            if (GetComponent<SpriteRenderer>().color.a >= 0)
-            {
-                col = GetComponent<SpriteRenderer>().color;
-                col.a -= alphaAttenuation * Time.deltaTime;
-                GetComponent<SpriteRenderer>().color = col;
-
-                //テスト　回転を加え絵的にかっこよく
-                scaling();
-                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
+                //タッチされた、かつトラップに掛かっていない
+                scaleTimeBuffer = 0;
+                GameManager.onSlow();
+                GameManager.colorFilter.onFilter();
+                GetComponent<SpriteRenderer>().color = initCol;
+                GetComponent<SpriteRenderer>().enabled = true;
+                transform.rotation = initRot;
+                flag = true;
             }
             else
             {
-                GetComponent<SpriteRenderer>().enabled = false;
-                sightFlag = false;
-            }
-        }
-        else
-        {
-            if (GetComponent<SpriteRenderer>().enabled)
-            {
                 scaling();
-                sightPos = cam.ScreenToWorldPoint(InputScript.getPosition());
+                sightPos = GameManager.mainCamera.ScreenToWorldPoint(InputManager.input.getPosition());
                 sightPos.z = 0;
                 transform.position = sightPos;
                 //テスト　回転を加え絵的にかっこよく
                 transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
             }
-            if (InputScript.getIsTouch())
+        }
+        else if (InputManager.input.isInputUp() | InputManager.emptyGageFlag | InputManager.guiFlag)
+        {//タッチ解除 or エネルギー空　or GUI表示中
+            if (GetComponent<SpriteRenderer>().color.a > 0)
             {
-                int m = (int)(Vector3.Distance(playerScript.transform.position, transform.position) / 2f);
-                for (int n = 0; n < effects.Length; n++)
-                {
-                    if (n < m)
-                    {
-                        effects[n].render.enabled = true;
-                        effects[n].Proc(transform, transform.position, playerScript.transform.position, n, m);
-                    }
-                    else
-                        effects[n].render.enabled = false;
-                }
+                scaling();
+                GameManager.offSlow();
+                GameManager.colorFilter.offFilter();
+                col = GetComponent<SpriteRenderer>().color;
+                col.a -= alphaAttenuation * Time.deltaTime;
+                GetComponent<SpriteRenderer>().color = col;
+
+                //テスト　回転を加え絵的にかっこよく
+                transform.Rotate(0, 0, Time.deltaTime * rotateSpeed, Space.Self);
             }
+            else
+            {
+                GetComponent<SpriteRenderer>().enabled = false;
+            }
+            flag = false;
         }
     }
 

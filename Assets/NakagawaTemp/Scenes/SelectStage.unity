@@ -227,6 +227,10 @@ Prefab:
       propertyPath: m_Text
       value: main
       objectReference: {fileID: 0}
+    - target: {fileID: 11476338, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
+      propertyPath: nextStageName
+      value: stage2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c570d8ae9d08043b1bbc591d5e01d207, type: 2}
   m_IsPrefabParent: 0

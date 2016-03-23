@@ -38,13 +38,13 @@ public class ShootingScript : AttackableList
 	// Update is called once per frame
 	void Update ()
     {
-	    
-	}
+    }
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if (col.tag.Equals("PlayerCollider"))
         {
+            sight_instance.transform.position = this.transform.position;
             sight_instance.GetComponent<SpriteRenderer>().enabled = true;
             sight_instance.GetComponent<BallSightScript>().enabled = true;
             //S_render.color = new Color(1, 0, 0, 1);

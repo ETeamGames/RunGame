@@ -5,7 +5,7 @@ using System;
 public class EnemyIsDamageScript : IsDamageScript
 {
     private GameObject[] part;
-    public Collider2D cc2d;
+    public Collider2D[] cc2d;
     public Animator animator;
     public MonoBehaviour script;
     public int score;
@@ -30,7 +30,13 @@ public class EnemyIsDamageScript : IsDamageScript
         if (script != null)
             script.enabled = true;
         if (cc2d != null)
-            cc2d.enabled = false;
+        {
+            foreach (Collider2D c in cc2d)
+            {
+                if(c != null)
+                    c.enabled = false;
+            }
+        }
         if (animator != null)
             animator.enabled = false;
         foreach (GameObject c in part)

@@ -28,8 +28,6 @@ public class CheckPointScript : MonoBehaviour
         {
             Debug.Log("チェックポイント通過!!");
             anim.SetBool("active" , true);
-            GameManager.nowCheckPoint = gameObject;
-            GameManager.checkPointPrefab = prefab;
             GameManager.checkPoint();
         }
     }

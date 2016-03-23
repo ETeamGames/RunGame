@@ -11,7 +11,7 @@ public class PlayerIsDamageScript : IsDamageScript
         hp -= scr.getDamage();
         if(hp < 1)
         {
-            GameManager.gameover = true;
+            GameManager.gameOver();
         }
     }
     protected override void OnTriggerEnter2D(Collider2D col)
