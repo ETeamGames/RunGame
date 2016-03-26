@@ -12,12 +12,6 @@ public class PlayerIsTrapScript : IsTrapScript{
 		timeBuffer = trapScript.EffectiveTime;
 		isTrap = true;
 		anim.SetBool(trap.TrapName, true);
-		if (trap.TrapName.Equals ("thunderTrap")) {
-			GameManager.touchable = false;
-			GetComponent<MoveScript>().StopPlayerMovement();
-		} else if (trap.TrapName.Equals ("TestTrap")) {
-			GetComponent<MoveScript>().StopPlayerMovement();
-		}
 	}
 	
 	void Awake()
@@ -44,7 +38,6 @@ public class PlayerIsTrapScript : IsTrapScript{
             {
                 isTrap = false;
                 anim.SetBool(trapScript.TrapName, false);
-                GameManager.touchable = true;
                 GetComponent<MoveScript>().ResumePlayerMovement();
             }
         }

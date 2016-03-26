@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/NakagawaTemp/Scenes/debug.unity
   - enabled: 1
     path: Assets/NakagawaTemp/Scenes/CSVGeneratorStage.unity
+  - enabled: 1
+    path: Assets/Stages/Stage2/stage2.unity

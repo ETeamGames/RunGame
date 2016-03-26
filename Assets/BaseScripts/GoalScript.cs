@@ -23,7 +23,7 @@ public class GoalScript : MonoBehaviour
         if (col.gameObject.tag.Equals("Player"))
         {
             col.gameObject.GetComponent<MoveScript>().StopPlayerMovement();
-            GameManager.state = GameManager.CONTROL.GUI;
+            InputManager.guiFlag = true;
             goalFlag = true;
             colorFilter.enabled = true;
             GameManager.checkPoint();
@@ -39,7 +39,8 @@ public class GoalScript : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-	
+        colorFilter = GameManager.colorFilter.GetComponent<SpriteRenderer>();
+        goalCanvas = GameManager.goalCanvas;
 	}
 	
 	// Update is called once per frame

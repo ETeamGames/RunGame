@@ -5,7 +5,6 @@ using System.Collections.Generic;
 
 public class MoveScript : MonoBehaviour
 {
-	public Camera cam;
 	[SerializeField]
 	private Rigidbody2D target;
 	[SerializeField]
@@ -54,8 +53,6 @@ public class MoveScript : MonoBehaviour
     {
 		target.velocity = new Vector3(Velocity.x,target.velocity.y,0);
 		myScale = transform.localScale;
-		// additional part
-		if(cam != null) cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
 	}
 	
 	void FixedUpdate()
@@ -66,10 +63,6 @@ public class MoveScript : MonoBehaviour
 			myScale.x *= direction;
 			transform.localScale = myScale;
 		} 
-		if(cam != null)
-		{
-			cam.transform.position = (new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, -10)) +cameraOffset;
-		}
 		
 	}
 	

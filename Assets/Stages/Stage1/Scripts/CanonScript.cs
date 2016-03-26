@@ -40,7 +40,6 @@ public class CanonScript : Switchable
             go.transform.parent = transform;
             Rigidbody2D rg = go.GetComponent<Rigidbody2D>();
             rg.gravityScale = 0;
-            rg.velocity = (GameManager.playerScript.transform.position - transform.position).normalized * speed;
             bulletBuffer++;
             yield return new WaitForSeconds(deltaTime);
         }
