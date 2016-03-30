@@ -73,8 +73,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 182354}
-  m_LocalRotation: {x: -4.70784869e-08, y: .707106829, z: 4.70784869e-08, w: .707106829}
-  m_LocalPosition: {x: -.274411917, y: 0, z: .208574906}
+  m_LocalRotation: {x: -0.000000047078487, y: 0.7071068, z: 0.000000047078487, w: 0.7071068}
+  m_LocalPosition: {x: -0.27441192, y: 0, z: 0.2085749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 497238}
@@ -98,8 +98,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 159834}
-  m_LocalRotation: {x: -4.70784869e-08, y: .707106829, z: 4.70784869e-08, w: .707106829}
-  m_LocalPosition: {x: -.435235888, y: -.250648916, z: .262373954}
+  m_LocalRotation: {x: -0.000000047078487, y: 0.7071068, z: 0.000000047078487, w: 0.7071068}
+  m_LocalPosition: {x: -0.4352359, y: -0.25064892, z: 0.26237395}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 497238}
@@ -110,9 +110,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101234}
-  m_LocalRotation: {x: 0, y: .707106829, z: 0, w: .707106709}
-  m_LocalPosition: {x: 0, y: .75999999, z: 0}
-  m_LocalScale: {x: 1.90511096, y: -1.90511096, z: 1.90511072}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071067}
+  m_LocalPosition: {x: 0, y: 0.76, z: 0}
+  m_LocalScale: {x: 1.905111, y: -1.905111, z: 1.9051107}
   m_Children:
   - {fileID: 421688}
   - {fileID: 422792}
@@ -136,8 +136,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -160,8 +162,10 @@ MeshRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
@@ -187,12 +191,13 @@ BoxCollider2D:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 163144}
   m_Enabled: 1
+  m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_Offset: {x: .389999986, y: .779999971}
+  m_Offset: {x: 0.39, y: 0.78}
   serializedVersion: 2
-  m_Size: {x: 1.54999995, y: 1.13}
+  m_Size: {x: 1.55, y: 1.13}
 --- !u!95 &9538820
 Animator:
   serializedVersion: 3

@@ -28,7 +28,8 @@ public class TitleManager : MonoBehaviour
 		// ゲームスタート時に、タイトルを非表示にしてプレイヤーを作成する
 		title.SetActive (false);
 		//Instantiate (player, player.transform.position, player.transform.rotation);
-		Application.LoadLevel ("SelectStage");
+		//Application.LoadLevel ("SelectStage");
+		Application.LoadLevel ("StageSelectScene");
 	}
 
 	public void GameOver ()
