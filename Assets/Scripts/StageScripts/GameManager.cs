@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         //画面解像度を設定
-        Screen.SetResolution(1920,1080, false, 60);
+        //Screen.SetResolution(1920,1080, false, 60);
+		//Screen.SetResolution(960,600, false, 60);
         normalSpeed = Time.timeScale;
         scoreText = GameObject.Find("ScoreText").gameObject.GetComponent<Text>();
         playerScript = GameObject.Find("_Player").GetComponent<PlayerScript>();
@@ -105,7 +106,8 @@ public class GameManager : MonoBehaviour
 
     public void returnStageSelect()
     {
-        Application.LoadLevel("SelectStage");
+        //Application.LoadLevel("SelectStage");
+		Application.LoadLevel("StageSelectScene");
     }
 	
 	// Update is called once per frame
