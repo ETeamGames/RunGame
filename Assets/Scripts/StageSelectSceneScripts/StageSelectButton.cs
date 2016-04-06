@@ -4,6 +4,7 @@ using System.Collections;
 public class StageSelectButton : MonoBehaviour {
 	[SerializeField] TextMesh stageNameTextMesh;
 	[SerializeField] TextMesh nowStageTextMesh;
+    [SerializeField] LogViewScript lvs;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,8 @@ public class StageSelectButton : MonoBehaviour {
 	public void ButtonPushed(){
 		Debug.Log ("button pushed");
 		nowStageTextMesh.text = stageNameTextMesh.text;
+        lvs.ChangeView(stageNameTextMesh.text);
 		Debug.Log ("StageName is "+nowStageTextMesh.text);
+
 	}
 }
