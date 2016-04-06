@@ -1,15 +1,14 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &165782
+--- !u!1 &184214
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 420898}
-  - 114: {fileID: 11480660}
-  - 114: {fileID: 11449428}
+  - 4: {fileID: 403224}
+  - 114: {fileID: 11491594}
   m_Layer: 0
   m_Name: Generator
   m_TagString: Untagged
@@ -17,51 +16,45 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &420898
+--- !u!4 &403224
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165782}
+  m_GameObject: {fileID: 184214}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 63.3199997, y: -3.94000006, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 97.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11449428
+--- !u!114 &11491594
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165782}
+  m_GameObject: {fileID: 184214}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84c9194adc29e4e369eb0bcb2058e15f, type: 3}
+  m_Script: {fileID: 11500000, guid: 7802499b896de4721a802f3fa7b91976, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   button: 0
-  inputDataPath: CSV/OutputData/stageData01
-  temp: {fileID: 178210, guid: c77db9ab81bd74ad290d3216399d735b, type: 2}
-  initialPos: {x: 0, y: 0, z: 0}
-  nextPos: {x: 3.83999991, y: 4.48000002, z: 0}
-  unitX: .639999986
-  unitY: .639999986
---- !u!114 &11480660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 165782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71d6d3a56dfe42dfab0f997f3571a25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  button: 0
-  inputDataPath: CSV/InputData/stageData01
-  outputDataPath: Assets/Resources/CSV/OutputData/stageData01.csv
-  column: 8
+  objects:
+  - {fileID: 161436, guid: cd760e830e02d7343be662f2b13284b9, type: 2}
+  - {fileID: 119970, guid: 66f661051affd064a9c77c452e19bfb4, type: 2}
+  - {fileID: 115170, guid: efaefecae3e8ba74b933d30b340d9f97, type: 2}
+  - {fileID: 181994, guid: d00c2a1b875a94f43b54a485c8831557, type: 2}
+  - {fileID: 173178, guid: 8c534469e71e51a43a6969f1fca0817e, type: 2}
+  - {fileID: 150116, guid: 06e41b44b70ed405c8c9cfb5300693e2, type: 2}
+  - {fileID: 169082, guid: b09d05b62d475c04e9348172eb66d10d, type: 2}
+  - {fileID: 139604, guid: 34eeea250cdd6f54a909533960edbb3a, type: 2}
+  - {fileID: 163144, guid: d2b26f60d103e284abb15a74921d6079, type: 2}
+  - {fileID: 167940, guid: 0afaf08affc25a24f880f74a34e4f388, type: 2}
+  - {fileID: 143566, guid: ff56517d9b6617244934daf11c000f71, type: 2}
+  - {fileID: 177632, guid: dbb719ebe6338e940bb3de6279524536, type: 2}
+  - {fileID: 106650, guid: b258b42f981dbaf4a9b515b3184a98a1, type: 2}
+  inputDataPath: CSV/InputData/stage2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
@@ -71,5 +64,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 165782}
+  m_RootGameObject: {fileID: 184214}
   m_IsPrefabParent: 1
